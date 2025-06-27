@@ -538,23 +538,27 @@ Now let's add proof terms to logic rules.
     name: [$square I$ ($tpurple(M)$ is a closed term w.r.t. _local_ (_runtime_) assumptions)],
   ),
   rule(
-    $Delta; Gamma tack.r "let" u := M "in" N : tred(C "true")$,
+    $Delta; Gamma tack.r "let box" u := M "in" N : tred(C "true")$,
     $Delta; Gamma tack.r M: tred(square A "true")$,
     $Delta, #tred($u: A "valid"$) ; Gamma tack.r N: tred(C "true")$,
     name: $square E$,
+  ),
+  rule(
+    $Delta; Gamma tack.r x: tred(A "true")$,
+    $x: tred(A "true") in Gamma$,
+  ),
+  rule(
+    $Delta; Gamma tack.r u: tred(A "true")$,
+    $u: tpurple(A "valid") in Delta$,
   ),
 )
 
 And now we have
 
 + (_Substitution_) If $Delta; Gamma, x: A "true" tack.r C "true"$ and #tpurple($Delta; Gamma tack.r A "true"$), then $Delta; Gamma tack.r C "true"$.
-  e.g. $
-    ("box" N) [M "/" x] = "box" N
-  $
+  e.g. $ ("box" N) [M "/" x] = "box" N $
 + (_Modal Substitution_) If $Delta, u: A "valid"; Gamma tack.r C "true"$ and #tpurple($Delta; tred(dot) tack.r A "true"$), then $Delta; Gamma tack.r C "true"$.
-  e.g. $
-    ("box" N) bracket.double M "/" u bracket.double.r = "box" (N bracket.double M "/" u bracket.double.r)
-  $
+  e.g. $ ("box" N) bracket.double M "/" u bracket.double.r = "box" (N bracket.double M "/" u bracket.double.r) $
 
 Now let's try to rephrase _locally soundness_
 
@@ -586,7 +590,7 @@ How to avoid this situation and force it generate a real function?
 ```haskell
 nth: int -> □(bool_vec -> bool)
 nth 0 = box (fun v -> hd v)
-nth (S n) = 
+nth (S n) =
   let box r = nth n in box (fun v -> r (tl v))
 ```
 
@@ -618,11 +622,136 @@ However, if you compare these two functions you still find the latter one not sa
 
 Previously, we wrote $square A$ to mean $A$ starts with an empty context, which is not sufficient in many cases. So instead, let's allow specifying a context $Gamma$ for $A$.
 
+=== Examples
+
+*Cooking metaphor*
+
 + Add eggs, flour, sugar
 + Add #box(stroke: 1pt, inset: (x: 10pt, y: 5pt)) (a liquid)
 
 To type #box(stroke: 1pt, inset: (x: 10pt, y: 5pt)), it's $"eggs", "flour", "sugar" forces "liquid"$
 
-Or in a more PL setting,
+*Theorem prover*
 
-$"fun" x -> #box(stroke: 1pt, inset: (x: 10pt, y: 5pt)) + x$, you can see the hole here accepts an $x: "int" forces "int"$
+Holes in programs:
+
+$"fun" x -> #box(stroke: 1pt, inset: (x: 10pt, y: 5pt)) +_"int" x$, you can see the hole here accepts an $x: "int" forces "int"$
+
+Or $lambda x. lambda y. #box(stroke: 1pt, inset: (x: 10pt, y: 5pt)) y.2: (A -> B -> C) -> (A times B) -> C$, where the hole accepts an $x: A -> B -> C, y: A times B forces B -> C$
+
+=== Syntax
+
+$
+                       "Types" quad A & ::= dots | square (tpurple(psi) forces A) \
+                       "Terms" quad M & ::= dots | "box" (tpurple(psi) . M)       \
+  "Contexts" quad Gamma, tpurple(psi) & ::= dots
+$
+
+E.g. $"box" (#tpurple($x: "int"$). x + x): square(#tpurple($x: "int"$) forces "int")$
+
+#note[But how to keep this thing stable under renaming?]
+
+#mathpar(
+  rule(
+    $Delta; Gamma tack.r "box" (tpurple(psi). M): tred(square(tpurple(psi) forces A) "true")$,
+    $Delta; tpurple(psi) tack.r M: tred(A "true")$,
+    name: [$square I$],
+  ),
+  rule(
+    $Delta; Gamma tack.r "let box" u := M "in" N : tred(C "true")$,
+    $Delta; Gamma tack.r M: tred(square(psi forces A) "true")$,
+    $Delta, #tred($u: A "valid"$) ; Gamma tack.r N: tred(C "true")$,
+    name: $square E$,
+  ),
+  rule(
+    $Delta; Gamma tack.r x: tred(A "true")$,
+    $x: tred(A "true") in Gamma$,
+  ),
+  rule(
+    $Delta; Gamma tack.r "clo"(u, tgreen(sigma)) : tred(A "true")$,
+    $u: tpurple(psi forces A) "valid" in Delta$,
+    $Delta, Gamma tack.r tgreen(sigma): tpurple(psi)$,
+  ),
+)
+
+*Notes*
+
+- *$tgreen(sigma)$* - substitution from $psi$ to $Delta, Gamma$ i.e.
+#prooftree(rule(
+  $Delta; Gamma tack.r (sigma, M "/" x): psi, x:A$,
+  $Delta; Gamma tack.r sigma: psi$,
+  $Delta; Gamma tack.r M: A$,
+))
+- *$"clo"(u, sigma)$* - delayed substitution $sigma$ that can be applied once $u$ is available.
+
+  #note[*Computation rules for `clo`*
+
+    Recall how we have
+
+    $ ("box" N) [M "/" x] = "box" N $
+    $ ("box" N) bracket.double M "/" u bracket.double.r = "box" (N bracket.double M "/" u bracket.double.r) $
+
+    Now also,
+
+    $ "clo"(u, sigma) bracket.double psi. M "/" u bracket.double.r = tpurple(M[sigma]) $
+
+    Beware that $M[sigma]$ is a *local* substitution.
+  ]
+
+
+E.g.
+$
+  lambda x. "let box" u := x "in" "box" (lambda y. lambda z. u " " y) :
+  tred(square (C -> A) -> square (C -> D -> A))
+$
+$
+  lambda x.
+  "let box" u := x "in" "box"(#tgreen($y: C, z: D$). tpurple("clo"(u, y "/" x')))
+  : tred(square (tpurple(x' : C) forces A) -> square (#tgreen($y : C, z: D$) forces A))
+$
+
+With this, we can revise our `nth` example
+
+```haskell
+nth: int -> □(bool_vec -> bool)
+nth 0 = box (fun v -> hd v)
+nth (S n) =
+  let box r =
+    nth n in box (fun v -> r (tl v))
+```
+
+into this
+
+```haskell
+nth: int -> □(v: bool_vec ⊨ int)
+nth 0 = box (v: bool_vec. hd v)
+nth (S n) =
+  let box u = nth n in
+    box (v: bool_vec. clo(u, (tl v)/v)
+```
+
+then we make
+
+```haskell
+nth 1
+= let box r = nth 0 in box (fun v -> r (tl v))
+= let box r = box (fun v -> hd v) in (fun v -> r (tl v))
+= box (fun v -> (fun v0 -> hd v0) (tl v))
+```
+
+into this
+
+```haskell
+nth 1
+= let box u = nth 0 in
+    box (v: bool_vec. clo(u, (tl v)/v))
+= let box u = box (v: bool_vec. hd v) in
+    box (v: bool_vec. clo(u, (tl v)/v))
+= box (v: bool_vec. clo(hd v0, (tl v)/v0))
+= box (v: bool_vec. hd (tl v))
+```
+
+Notice how the nested evaluation is eager.
+
+
+#todo[What's the difference between functions and `clo`?]
