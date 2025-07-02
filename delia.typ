@@ -91,6 +91,8 @@ $P^-$ is a Pre PN, but mark angles with dependent precedences with a red arc.
 
 *Theorem*: A pre proof-net is a proof-net iff its $P^-$ is contractible (reduces to a single node).
 
+*Intuition*: if it can collapse a single node then it's a single sequent. The only thing that stops it from collapsing is the #tred[red arc], i.e. `par`.
+
 == MELL
 
 MLL + weakening and contraction.
