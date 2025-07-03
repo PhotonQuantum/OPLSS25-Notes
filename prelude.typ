@@ -24,9 +24,9 @@
   box(inset: (right: 5pt), box(fill: purple, outset: 3pt, text(fill: white, "NOTE"))) + c,
 )
 #let warn(c) = box(
-  stroke: yellow,
+  stroke: red,
   outset: (x: 3pt, y: 3pt),
-  box(inset: (right: 5pt), box(fill: yellow, outset: 3pt, text(fill: white, "WARN"))) + c,
+  box(inset: (right: 5pt), box(fill: red, outset: 3pt, text(fill: white, "WARN"))) + c,
 )
 
 #let smcp(s) = (

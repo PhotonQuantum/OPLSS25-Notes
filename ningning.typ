@@ -13,7 +13,9 @@ What are effect handlers?
 A *composable* and *structured* control-flow abstraction.
 
 _But why not monads?_
-Monads are more expressive but algebraic effects are more composable.
+*Algebraic effects* are more _composable_, becuase they *abstract the details* on how effects are handled *away*, while to reason on *monads* one need to use _transformers_ to actually look into the details.
+
+Of course, monads are more expressive because they don't need to be algebraic.
 
 = Definition
 
@@ -346,3 +348,79 @@ By `lift[op] e` one could specify to skip one handler when handling `op` in `e`.
 
 *Named*
 A name is attached to both the handler and the operation, so one can specify which handler to use for a particular operation term.
+
+= Effect Type System
+
+== Syntax
+
+$
+  "effect labels" & cal(l)\
+  "effects" & epsilon &:= ⟨⟩ | ⟨cal(l) | epsilon⟩\
+  "types" & A &:= "Int" | "Bool" | tpurple(A ->^epsilon B)
+$
+
+#note[
+  We have multiple choices with regard to the model of effects. It can be sets, simple rows, scoped rows, or some other stuff.
+]
+
+#tpurple($A ->^epsilon B$): a function taking an $A$ that *may perform effects $epsilon$* and returns a value of type $B$.
+
+== Judgment
+
+#box(inset: 5pt, stroke: 1pt)[$Gamma tack.r e: A tpurple(| epsilon)$] 
+a term $e$ of type $A$ in context $Gamma$ that may perform effects $epsilon$.
+
+#mathpar(
+  rule(
+    $Gamma tack.r "True": "Bool" tpurple(| epsilon)$,
+    name: msmcp("T")
+  ),
+  rule(
+    $Gamma tack.r lambda x. e: A ->^tpurple(epsilon) B tred(| epsilon')$,
+    $Gamma, x: A tack.r e: B tpurple(| epsilon)$,
+    name: msmcp("Abs")
+  ),
+  rule(
+    $Gamma tack.r e_1 " " e_2: B tpurple(| epsilon)$,
+    $Gamma tack.r e_1: A ->^tpurple(epsilon) B tpurple(| epsilon)$,
+    $Gamma tack.r e_2: A tpurple(| epsilon)$,
+    name: msmcp("App")
+  )
+)
+
+For #smcp("T") (consts), we allow arbitrary effects so that we can "pretend" it performs $epsilon$. This phenomenon is called _effect pollution_.
+
+For #smcp("Abs"), we allow arbitrary effects #tred($| epsilon'$), i.e. it doesn't need to be the same as #tpurple($epsilon$), because a function itself does not perform any effects. For #smcp("App") we require the effects of the function and its argument to match.
+
+The reason why we model it as rows is because we can actually deal with effects with _row unification_ only, instead of complex set reasoning.
+
+#todo[Op, Handle, and Handle judgment]
+
+*Theorem* (_Type Preservation_). If $Gamma tack.r e: A tpurple(| epsilon)$, and $e -> e'$, then $Gamma tack.r e': A tpurple(| epsilon)$.
+
+*Conjecture* (_Progress?_). If $tack.r e: A tred(| epsilon)$, then either $e$ is a value or there exists $e'$ such that $e -> e'$.
+
+#warn[What if some effect in $tred(epsilon)$ is not handled?]
+
+*Theorem* (_Progress with effects_). If $tack.r e: A tpurple(| epsilon)$, then either $e$ is a value or there exists $e'$ such that $e -> e'$, or $e = E[tblue("op") v]$ where $tblue("op") in epsilon$ and $tblue("op") \# E$, i.e. $E$ does not handle $tblue("op")$ so the computation is stuck.
+
+*Collary* (_Progress_). If $tack.r e: A tpurple(| ⟨⟩)$, then either $e$ is a value or there exists $e'$ such that $e -> e'$.
+
+= Runtime Implementation
+
+*Problem*: the naive implementation is slow.
+$
+  "handle" h " " E[#tpurple($op$) v] -> f " " v (tred(lambda x. "handle" h E[x])) quad "where" #tpurple($op$) |-> f in h, tred(op \# E)
+$
+
+One need to first #tred[_capture_] the continuation and then #tred[_search_] the handler, both of which are expensive.
+
+*Solutions*:
+- *CPS* (_Lean_) - Using closures to capture the continuation, but still one needs to pay for closure allocation.
+- *Segmented stacks* (_OCaml_) - Very efficient handling of one-shot resumption.
+
+  Stacks are segmented into _fibers_ with _handlers_ as dividers.
+  Once an action is met, the continuation is stuffed into the deepest fiber.
+- *Capability-passing style* (_Effekt, Scala_) - Efficient lexically scoped handlers, and has a slightly different semantics. Handlers are decided lexically, thus efficient, but care must be taken to ensure handlers does not escape its scope at runtime.
+- *Rewriting* (_Eff_) - Source-to-source transformation
+- *Evidence-passing semantics* (_Koka_) - Pushing down handlers to the action call-site instead of searching for them. _Tail-resumption_ (_tail-call_ for handlers) is handled ad-hoc to allow in-place tail resumption, eliminating continuation capturing.
