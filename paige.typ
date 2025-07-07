@@ -1,5 +1,8 @@
 #import "prelude.typ": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
+#set heading(numbering: "1.1.1")
+
+#show: prelude-init.with()
 
 #let diagram = diagram.with(spacing: 2em, label-sep: 0em)
 
@@ -7,9 +10,10 @@
 
 *Q:* What is Category Theory?
 
-*A:*
-+ Understanding math objects via relations with each other, i.e. taking an external view, so you do not inspect the internal structure of the objects.
-+ A whole independent field of study.
+#grid(columns: (auto, 1fr))[*A:*][
+  + Understanding math objects via relations with each other, i.e. taking an external view, so you do not inspect the internal structure of the objects.
+  + A whole independent field of study.
+]
 
 *Q:* What is a category?
 
@@ -47,6 +51,8 @@ A *category* $cal(C)$ is
   _such that_
 
   - $f compose id_X = f = id_Y compose f$
+
+    #definition[Normally we don't differentiate left and right identity. There was one particular notion that did, but then they were shown to be equivalent.]
 
     #note[Normally we don't differentiate left and right identity. There was one particular notion that did, but then they were shown to be equivalent.]
   - for any $f: X -> Y, g: Y -> Z, h: Z -> A$,
@@ -103,7 +109,7 @@ _E.g._
 
 Two objects $X, Y$ in a category $cal(C)$ are *isomorphic* if there exists morphisms $f: X -> Y$ and $g: Y -> X$ such that $g compose f = id_X$ and $f compose g = id_Y$.
 
-#note[
+#remark[
   If $x tilde.equiv y$, we say
   + $f$ is an _isomorphism_ that $f: X tilde.equiv Y$, $f: X ->^tilde Y$
   + $g$ as $f^(-1)$, and  $f^(-1): Y tilde.equiv X$, $f^(-1): Y ->^tilde X$
@@ -113,15 +119,18 @@ _E.g._
 - _bijection_ in _Set_
 - _bi-implication_ in _Prop_
 
-*Lemma*. If $f: X tilde.equiv Y$, then for any $Z$, we have
-- $f_*: hom(Z, X) scripts(tilde.equiv)_(italic("Set")) hom(Z, Y)$.
-- $f^*: hom(Z, X) scripts(tilde.equiv)_(italic("Set")) hom(Z, Y)$.
-*Proof*. ($f_*$)
-- $=>$\
-  For any $g in hom(Z, X)$, we have $g: Z -> X$. Also we know $tpurple(X ->^f Y)$. So, $tpurple(f) compose g : Z ->^g X ->^tpurple(f) Y$.
+#lemma[
+  If $f: X tilde.equiv Y$, then for any $Z$, we have
+  - $f_*: hom(Z, X) scripts(tilde.equiv)_(italic("Set")) hom(Z, Y)$.
+  - $f^*: hom(Z, X) scripts(tilde.equiv)_(italic("Set")) hom(Z, Y)$.
+]
+#proof[
+  - $=>$\
+    For any $g in hom(Z, X)$, we have $g: Z -> X$. Also we know $tpurple(X ->^f Y)$. So, $tpurple(f) compose g : Z ->^g X ->^tpurple(f) Y$.
 
-- $arrow.double.l$\
-  For any $h in hom(Z, Y)$, we have $h: Z -> Y$. Also we know $tpurple(Y ->^(f^(-1)) X)$. So, $tpurple(f^(-1)) compose h : Z ->^h Y ->^tpurple(f^(-1)) X$.
+  - $arrow.double.l$\
+    For any $h in hom(Z, Y)$, we have $h: Z -> Y$. Also we know $tpurple(Y ->^(f^(-1)) X)$. So, $tpurple(f^(-1)) compose h : Z ->^h Y ->^tpurple(f^(-1)) X$.
+]
 
 *Lemma*. Terminal objects are _unique up to isomorphism_.
 
@@ -308,35 +317,37 @@ _E.g._
     This _uniqueness_ depends on a specific choice of $pi_A$ and $pi_B$. In other words, if we only consider the product objects $A times B$ and $A times' B$, their isomorphism might not be unique because we have the freedom to choose different projection morphisms $pi_A, pi_B$ and $pi'_A, pi'_B$, and they form their own unique isomorphism.
   ]
 
-*Alternative Definition 1* Define new category $cal(C)_(A, B)$,
+#definition[
+  Define new category $cal(C)_(A, B)$,
 
-+ *Objects*: diagrams of the form
-  // #q=WzAsMyxbMSwwLCJaIl0sWzAsMSwiQSJdLFsyLDEsIkIiXSxbMCwxLCJldGFfQSIsMl0sWzAsMiwiZXRhX0IiXV0=
-  $
-    #diagram(
-      node((0, -1), $Z$),
-      node((-1, 0), $A$),
-      node((1, 0), $B$),
-      edge((0, -1), (-1, 0), $eta_A$, "->"),
-      edge((0, -1), (1, 0), $eta_B$, "->"),
-    )
-  $
-  It can also be called a _span_ from $A$ to $B$.
-+ *Morphisms*: $tpurple(f)$ shown in the following diagram
-  // #q=WzAsNCxbMSwwLCJaIl0sWzAsMSwiQSJdLFsyLDEsIkIiXSxbMSwyLCJZIl0sWzAsMSwiZXRhX0EiLDJdLFswLDIsImV0YV9CIl0sWzMsMSwieV9BIl0sWzMsMiwieV9CIiwyXSxbMywwLCJmIiwyLHsiY29sb3VyIjpbMjcwLDYwLDYwXX0sWzI3MCw2MCw2MCwxXV1d
-  $
-    #diagram(
-      node((0, -1), $Z$),
-      node((-1, 0), $A$),
-      node((1, 0), $B$),
-      node((0, 1), $Y$),
-      edge((0, -1), (-1, 0), $eta_A$, "->"),
-      edge((0, -1), (1, 0), $eta_B$, "->"),
-      edge((0, 1), (-1, 0), $y_A$, "->"),
-      edge((0, 1), (1, 0), $y_B$, "->"),
-      edge((0, 1), (0, -1), text(fill: color.hsl(270deg, 60%, 60%), $f$), "->", stroke: color.hsl(270deg, 60%, 60%)),
-    )
-  $
+  + *Objects*: diagrams of the form
+    // #q=WzAsMyxbMSwwLCJaIl0sWzAsMSwiQSJdLFsyLDEsIkIiXSxbMCwxLCJldGFfQSIsMl0sWzAsMiwiZXRhX0IiXV0=
+    $
+      #diagram(
+        node((0, -1), $Z$),
+        node((-1, 0), $A$),
+        node((1, 0), $B$),
+        edge((0, -1), (-1, 0), $eta_A$, "->"),
+        edge((0, -1), (1, 0), $eta_B$, "->"),
+      )
+    $
+    It can also be called a _span_ from $A$ to $B$.
+  + *Morphisms*: $tpurple(f)$ shown in the following diagram
+    // #q=WzAsNCxbMSwwLCJaIl0sWzAsMSwiQSJdLFsyLDEsIkIiXSxbMSwyLCJZIl0sWzAsMSwiZXRhX0EiLDJdLFswLDIsImV0YV9CIl0sWzMsMSwieV9BIl0sWzMsMiwieV9CIiwyXSxbMywwLCJmIiwyLHsiY29sb3VyIjpbMjcwLDYwLDYwXX0sWzI3MCw2MCw2MCwxXV1d
+    $
+      #diagram(
+        node((0, -1), $Z$),
+        node((-1, 0), $A$),
+        node((1, 0), $B$),
+        node((0, 1), $Y$),
+        edge((0, -1), (-1, 0), $eta_A$, "->"),
+        edge((0, -1), (1, 0), $eta_B$, "->"),
+        edge((0, 1), (-1, 0), $y_A$, "->"),
+        edge((0, 1), (1, 0), $y_B$, "->"),
+        edge((0, 1), (0, -1), text(fill: color.hsl(270deg, 60%, 60%), $f$), "->", stroke: color.hsl(270deg, 60%, 60%)),
+      )
+    $
+]
 
 *Theorem*. _Product_ of A,B in $cal(C)$ is the _terminal object_ in $cal(C)_(A, B)$.
 
@@ -376,7 +387,7 @@ Intuitively, one can make sense of this syntax by thinking of $A + B$ as the dis
 
 == Syntactic Category of STLC
 
-For a _simply typed $lambda$-calculus_ $Pi$, define its *syntactic category* $cal(C)_(Pi)$ as follows:
+For a _simply typed $lambda$-calculus_ $TT$, define its *syntactic category* $cal(C)_(TT)$ as follows:
 - *Objects*: types
 - *Morphisms*: $x: S tack.r t: T$
 One can see it satisfies:
@@ -388,7 +399,11 @@ One can see it satisfies:
 - *Comp*:
   #prooftree(rule($x: S tack.r u[t"/"y]: U$, $x: S tack.r t: T$, $y: T tack.r u: U$, name: msmcp("Subst")))
 
-Now let's add product to our $Pi$.
+$
+  a + 1 = #smallcaps("Test")
+$
+
+Now let's add product to our $TT$.
 
 #mathpar(
   rule(
@@ -419,4 +434,252 @@ $
   )
 $
 
-Thus, there's an intepretation from $Pi$ to the category $cal(C)_(Pi)$. After that, one can construct morphisms from $cal(C)_(Pi)$ to other categories to give various different semantics to $Pi$.
+Thus, there's an intepretation from $TT$ to the category $cal(C)_(TT)$. After that, one can construct morphisms from $cal(C)_(TT)$ to other categories to give various different semantics to $TT$.
+
+== Functors
+
+A *functor* $F: cal(C) -> cal(D)$ consists of
+
++ A function $ob F : ob cal(C) -> ob cal(D)$
++ A function $F_(X, Y): hom_cal(C)(X, Y) -> hom_(cal(D)) (F X, F Y)$ for all $X, Y in ob cal(C)$
+
+such that
++ (*Id*) $F_(X, X) id_X = id_(F X)$ for all $X in ob cal(C)$
++ (*Comp*) $F_(X, Z) (g compose f) = F_(Y, Z)(g) compose f_(X, Y)(f)$ for $X ->^f Y ->^g Z in cal(C)$
+
+#note[$ob F$ and $F_(X, Y)$ are just notations. It doesn't mean $F$ is a category.]
+
+*Theorem*. Functors preserve isomorphisms.
++ From
+  // #q=WzAsMixbMCwwLCJYIl0sWzEsMCwiWSJdLFswLDEsImYiLDAseyJvZmZzZXQiOi0xfV0sWzEsMCwiZl4oLTEpIiwwLHsib2Zmc2V0IjotMX1dXQ==
+  $
+    #diagram(
+      node((-1, -1), $X$),
+      node((0, -1), $Y$),
+      edge((-1, -1), (0, -1), $f$, "->", shift: -1pt),
+      edge((0, -1), (-1, -1), $f^(-1)$, "->", label-side: left, shift: -1pt),
+    )
+  $
+  this holds:
+  // #q=WzAsMixbMCwwLCJYIl0sWzEsMCwiWSJdLFswLDEsImYiLDAseyJvZmZzZXQiOi0xfV0sWzEsMCwiZl4oLTEpIiwwLHsib2Zmc2V0IjotMX1dXQ==
+  $
+    #diagram(
+      node((-1, -1), $F X$),
+      node((0, -1), $F Y$),
+      edge((-1, -1), (0, -1), $F f$, "->", shift: -1pt),
+      edge((0, -1), (-1, -1), $F f^(-1)$, "->", label-side: left, shift: -1pt),
+    )
+  $
++ $F f compose F f^(-1) = F (f compose f^(-1)) = F id_Y = id_(F Y)$
+and vice versa.
+
+_E.g._
++ _Id functor_ $"Id"_cal(C): cal(C) -> cal(C)$
++ _Functor comp_ $G compose F$:\
+  Given $F: cal(C) -> cal(D)$ and $G: cal(D) -> cal(E)$, define $G compose F: cal(C) -> cal(E)$ by
+  - $ob (G compose F): ob cal(C) -> ob cal(E) = lambda X. ob G (ob F (X))$
+    #todo[$(G compose F) med x = G (F x)$]
+  - $(G compose F)_(X, Y) : hom_cal(C)(X, Y) -> hom_cal(E)(G F X, G F Y) = G_(F X, F Y) compose F_(X, Y)$
+
+== Category of Categories
+
+- *Objects*: categories
+- *Morphisms*: functors
+
+_E.g._
+Consider $bb(1) = {A}$, and $X in ob cal(C)$, there's functor $[X]: bb(1) -> cal(C)$ such that
++ $ob_([X]) = ob bb(1) -> ob_(cal(C))$
++ $[X]_(Y, Z): hom_bb(1) (Y, Z) -> hom_(cal(C))(X, X) = lambda \_. id_X$
+Intuitively, this is picking one object $X$ out of $cal(C)$.
+
+_E.g._
+Given $cal(C)$, there is a functor $!: cal(C) -> bb(1)$ such that
++ $ob !: ob cal(C) -> ob bb(1) := lambda \_. A$
++ $!_(X, Y) : hom_cal(C)(X, Y) -> hom_bb(1) (A, A) := lambda \_. id_A$
+
+#note[
+  $bb(1)$ is terminal in $italic("Cat")$ because for any category $cal(C)$, there is a unique functor $cal(C) ->^! bb(1)$. It is unique because the only object in $bb(1)$ is $A$, and the only morphism is $id_A$.
+]
+
+_E.g._ $italic("Set") arrow.curve italic("Cat")$
+
+#note[
+  Similarly, $bb(0)$ is initial in $italic("Cat")$ because for any category $cal(C)$, there is a unique empty functor $bb(0) ->^excl.inv cal(C)$.
+]
+
+_E.g._ $cal(C) times cal(D)$
+- *Objects*: $ob cal(C) times ob cal(D)$
+- *Morphisms*: $hom_(cal(C) times cal(D)) ((C, D), (C', D')) := hom_cal(C)(C, C') times hom_cal(D)(D, D')$
+
+_E.g._ $cal(D) + cal(D)$
+- *Objects*: $ob cal(C) + ob cal(D)$
+- *Morphisms*:
+  $
+    & hom_(C + D) (C, C') && := hom_cal(C)(C, C') \
+    & hom_(C + D) (D, D') && := hom_cal(D)(D, D') \
+    & hom_(C + D) (C, D)  && := emptyset          \
+    & hom_(C + D) (D, C)  && := emptyset
+  $
+
+_E.g._
+Consider $cal(C)$ with $+, top$.\
+We can define a functor $"Maybe": cal(C) -> cal(C)$ that behaves like a haskell `Maybe`:
++ $"Maybe" med X := X + T$
++ $hom_("Maybe" cal(C)) (X, Y)$ is depicted in the following diagram, while $tred(f)$ is the input morphism and $tpurple(f + id_T)$ is the result.
+  // #q=WzAsNCxbMCwxLCJYIl0sWzIsMSwidG9wIl0sWzEsMSwiWCArIHRvcCJdLFsxLDAsIlkgKyB0b3AiXSxbMCwyLCJpb3RhX0EiXSxbMSwyLCJpb3RhX0IiLDJdLFswLDMsImlvdGFfQSBjb21wb3NlIGYiLDJdLFsxLDMsImlkIl0sWzIsMywiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+  $
+    #diagram(
+      spacing: 3em,
+      node((-1, 0), $X$),
+      node((1, 0), $top$),
+      node((0, 0), $X + top$),
+      node((0, -1), $Y + top$),
+      edge((-1, 0), (0, 0), $iota_1$, "->"),
+      edge((1, 0), (0, 0), $iota_2$, "->", label-side: right),
+      edge((-1, 0), (0, -1), $iota_1 compose tred(f)$, "->"),
+      edge((1, 0), (0, -1), $iota_2 compose id$, "->"),
+      edge((0, 0), (0, -1), "-->", label: tpurple($f + id_T$), label-side: center, stroke: colors.mauve),
+    )
+  $
+
+= CH-Lambek Correspondence
+
+Define a category $cal(C)_(TT)$ (syntactic category) for a _simply typed $lambda$-calculus_ $TT$ with
++ structural rules
++ rules for unit type
++ rules for product type
++ constant symbols $C$ for types
++ constant symbols $c$ for terms
+
+#remark[
+  Recall that _objects_ are types and _morphisms_ are terms in $cal(C)_(TT)$.
+]
+
+There is a functor $F: tpurple(cal(C)_TT) -> tred(cal(D))$ where $D$ is a category with _products_ and _terminal object_ such that
++ $F(T)$ for all $T in C$
++ $F(t)$ for all $t in c$
++ $F("unit") := bb(1)$
++ $F(S times T) = F(S) times F(T)$
+
+*Theorem*. $F$ is a _functor_.
+
+*Definition* $cal(M)_TT$ is the category with
++ *Objects*: categories with terminal objects, products, interpretation $[C], [c]$ for each $T in C, t in c$.
++ *Morphisms*: functors that preserve terminal objects, products and interpretation.
+  _E.g._ for any $F: cal(C) -> cal(D), F(bb(1)_C) tilde.equiv bb(1)_cal(D)$
+
+*Fact*. $tpurple(cal(C)_TT)$ is the initial object of $cal(M)_TT$. $tred(cal(D))$ is an arbitrary object of $cal(M)_TT$.
+
+*Theorem*. (_Lambek_) The category of extensions of _STLC_ with _function types_ is *equivalent* to the category of categories with terminal objects, products, and _exponent objects_.
+
+#note[
+  - product - product
+  - unit - terminal object
+  - function type - exponent object
+]
+
+Intuitively, isomorphism of categories $cal(C)$ and $cal(D)$ looks like:
+// #q=WzAsMixbMCwwLCJYIl0sWzEsMCwiWSJdLFswLDEsImYiLDAseyJvZmZzZXQiOi0xfV0sWzEsMCwiZl4oLTEpIiwwLHsib2Zmc2V0IjotMX1dXQ==
+$
+  #diagram(
+    node((-1, -1), $cal(C)$),
+    node((0, -1), $cal(D)$),
+    edge((-1, -1), (0, -1), $F$, "->", shift: -1pt),
+    edge((0, -1), (-1, -1), $G$, "->", label-side: left, shift: -1pt),
+  )
+$
+where $G compose F tilde.equiv "Id"_cal(C)$ and $F compose G tilde.equiv "Id"_cal(D)$.
+
+#todo[
+  Given a $TT$
+  + Look at objects in $cal(M)_TT$
+  + Look at objects ?? with morphisms $cal_TT -> cal(D)$
+]
+
+= Moral
++ Type theory is category theory.
++ Category of CCC contains categories of _real_ objects (sets, topological spaces, types, etc.)
++ (_A category of a certain model_) can be used to show certain statements are not provable.
++ Type theory is an _informal language_ for these categories.
+
+= Bonus: Inductive types $NN$
+
+$NN$ in PL is defined as:
+$
+  O & : "unit" -> NN \
+  S & : NN -> NN
+$
+
+Categorically, we want to define $"unit" + NN -> NN$.
+// #q=WzAsNCxbMSwwLCJcInVuaXRcIiArIE5OIl0sWzAsMCwiXCJ1bml0XCIiXSxbMiwwLCJOTiJdLFsxLDEsIk5OIl0sWzEsMF0sWzEsMywiTyIsMl0sWzIsMywiUyJdLFsyLDBdLFswLDMsIk8gKyBTIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+$
+  #diagram(
+    node((0, 0), $"unit" + NN$),
+    node((-1, 0), $"unit"$),
+    node((1, 0), $NN$),
+    node((0, 1), $NN$),
+    edge((-1, 0), (0, 0), "->"),
+    edge((-1, 0), (0, 1), $O$, "->", label-side: right),
+    edge((1, 0), (0, 1), $S$, "->", label-side: left),
+    edge((1, 0), (0, 0), "->"),
+    edge((0, 0), (0, 1), $O + S$, "-->", label-side: center, label-fill: true),
+  )
+$
+
+_Induction_: we want to say that $NN$ has $O, S$ but that functions $NN -> A$ corresponds to
+$
+  Z & : "unit" -> A \
+  O & : A -> A
+$
+i.e. $"unit" + A -> A$
+
+Naturally, functor _Maybe_ ($cal(C) -> cal(C)$) might be helpful: $A |-> "unit" + A$
+
+#note[$cal(C)$ could be syntactic category for a type theory]
+
+Define a category $a l g_"Maybe"$ of Maybe-algebras:
+- *Objects*: $(A, a)$ where $A in ob cal(C), a: "Maybe" A -> A$
+- *Morphisms*: $(A, a) ->^f (B, b)$ are morphisms $A ->^f B$ in $cal(C)$ s.t.
+// #q=WzAsNCxbMCwwLCJcInVuaXRcIitBIl0sWzEsMCwiQSJdLFswLDEsIlwidW5pdFwiK0IiXSxbMSwxLCJCIl0sWzAsMiwiaWRfXCJ1bml0XCIgKyBmIl0sWzAsMSwiYSIsMl0sWzIsMywiYiJdLFsxLDMsImYiLDJdXQ==
+$
+  #diagram(
+    node((-1, -1), $"unit"+A$),
+    node((0, -1), $A$),
+    node((-1, 0), $"unit"+B$),
+    node((0, 0), $B$),
+    edge((-1, -1), (-1, 0), $id_"unit" + f$, "->"),
+    edge((-1, -1), (0, -1), $a$, "->", label-side: right),
+    edge((-1, 0), (0, 0), $b$, "->"),
+    edge((0, -1), (0, 0), $f$, "->", label-side: right),
+  )
+$
+i.e. $f$ is a morphism that preserves the structure of Maybe-algebra.
+$f compose a = b compose "Maybe" f$
+#note[
+  $f$ is unique regarding a given pair of $(A, a)$ and $(B, b)$. #todo[why?]
+]
+
+*Observation.* $NN$ is the initial object of $a l g_"Maybe"$.
+
+#note[
+  Not every functor has a initial object in its category of algebras. It's a privilege of _polynomial endo-functors_.
+]
+
+Recall that we can prove _Set_ is a model of _MLTT_.
+
+Similarly,
+
+*Claim.* $NN$ is the _genuine_ natural number.
+
+Recall we can add _co-_ prefixes to concepts in category theory lol,
+
+Define $italic("Co-alg")_F$ on
+$(A, a)$ where $A in ob cal(C), a: A -> F A$
+
+And we take its _terminal object_. That's how we get _coinductive types_.
+
+= References
+
+Lambek + Scott. Intro to higher order categorical logic. (Background required: logic)
+Altenkirch: Category theory for the lazy functional programmers
+Ahrens, Wullaert: Category theory for programmers
