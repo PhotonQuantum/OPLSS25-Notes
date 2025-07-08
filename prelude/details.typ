@@ -33,7 +33,11 @@
   )({
     set align(left)
     let b = if fill {
-      block.with(inset: .5em, stroke: if stroke { (left: color + .25em) } else { none }, fill: color.transparentize(95%))
+      block.with(
+        inset: .5em,
+        stroke: if stroke { (left: color + .25em) } else { none },
+        fill: color.transparentize(95%),
+      )
     } else { block }.with(width: 100%)
 
     // if inside new heading
@@ -57,8 +61,10 @@
   key: "Theorem",
   color: colors.teal,
 )
+#let conjecture = _details.with(prefix: "Conjecture", color: colors.orange)
 #let algorithm = _details.with(prefix: "Algorithm", color: colors.pink)
 #let remark = _details.with(prefix: "Remark", color: colors.mauve, stroke: false)
+#let pitfall = _details.with(prefix: "Pitfall", color: colors.red, stroke: false)
 #let example = _details.with(prefix: "Example")
 #let proposition = _details.with(
   prefix: "Proposition",
@@ -67,7 +73,7 @@
 )
 
 #let proof(body) = {
-  [_Proof._]
+  [_*Proof.*_]
   let _append(body) = context {
     let b = if body.has("children") and body.children.last() == [ ] {
       body.children.slice(0, -1).join()
