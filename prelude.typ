@@ -4,8 +4,10 @@
 #import "@preview/cetz:0.4.0"
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 #import "@preview/hydra:0.6.1": hydra
-#import "prelude/details.typ": *
-#import "prelude/smcp.typ": *
+#import "@preview/shiroa:0.2.3": *
+#import "/prelude/details.typ": *
+#import "/prelude/smcp.typ": *
+#import "/templates/page.typ": project
 
 #let tred(c) = text(fill: colors.red, c)
 #let tblue(c) = text(fill: blue.darken(10%), c)
@@ -31,8 +33,29 @@
 
 #let mathpar(..rules) = block(rules.pos().map(prooftree).map(c => box(inset: 5pt, c)).join(h(0.5cm)))
 
-#let prelude-init(smcp-simulate: false, title: "Lorem Ipsum", body) = {
+#let pdf-only(c) = context {
+  if is-pdf-target() {
+    c
+  }
+}
+
+#let web-only(c) = context {
+  if is-web-target() {
+    c
+  }
+}
+
+#let __heading_collection = state("heading-collection", [])
+
+#let prelude-init(smcp-simulate: false, title: "Lorem Ipsum", author: "John Doe", body) = {
+  show: project.with(title: title)
+
   set-smcp(simulate: smcp-simulate)
+
+  show heading: h => {
+    __heading_collection.update(it => it + h)
+    h
+  }
 
   show smallcaps: set text(font: "Libertinus Serif")
   show math.equation: set text(font: "Libertinus Math")
@@ -63,6 +86,16 @@
 
   show: codly-init.with()
   codly(languages: codly-languages)
+
+  align(center)[
+    #text(if is-pdf-target() { 16pt } else { 28pt }, strong(title))
+
+    _#(author)_
+  ]
+
+  set heading(numbering: "1.1.1")
+  outline()
+
   body
 }
 

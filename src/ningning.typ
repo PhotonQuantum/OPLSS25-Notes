@@ -1,4 +1,4 @@
-#import "prelude.typ": *
+#import "/prelude.typ": *
 
 #show: codly-init.with()
 #codly(languages: codly-languages)

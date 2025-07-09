@@ -1,4 +1,4 @@
-#import "prelude.typ": *
+#import "/prelude.typ": *
 
 Slides: #link("https://www.irif.fr/~kesner/enseignement/mpri/ll/Proof-Nets.pdf")
 
