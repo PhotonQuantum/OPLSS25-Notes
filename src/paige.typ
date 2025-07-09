@@ -1,15 +1,8 @@
-#import "prelude.typ": *
-#show: prelude-init.with(title: [Notes for _Introduction to Category Theory_])
-
-#align(center)[
-  #text(16pt)[*Notes for _Introduction to Category Theory_*]
-
-  _Prof. Paige North \@ OPLSS25\
-  Notes by: Yanning Chen_
-]
-
-#set heading(numbering: "1.1.1")
-#outline()
+#import "/prelude.typ": *
+#show: prelude-init.with(
+  title: [Notes for _Introduction to Category Theory_],
+  author: [Prof. Paige North \@ OPLSS25\ Notes by: Yanning Chen],
+)
 
 = Category Theory
 
