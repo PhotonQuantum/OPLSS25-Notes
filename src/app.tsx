@@ -24,17 +24,17 @@ export default function App() {
 
   const AppContent = (props: any) => {
     return (
-      <div class="flex min-h-screen bg-white">
+      <div class="flex h-screen bg-white">
         <div class={`transition-all duration-300 ${isSidebarOpen() ? "w-64" : "w-0"}`}>
           <Sidebar isOpen={isSidebarOpen()} />
         </div>
-        <div class="flex-1 flex flex-col min-w-0">
-          <Header 
+        <div class="flex-1 flex flex-col h-full min-w-0">
+          <Header
             onToggleSidebar={toggleSidebar}
             isSidebarOpen={isSidebarOpen()}
           />
-          <main class="flex-1 overflow-auto">
-            <div class="max-w-4xl mx-auto p-8">
+          <main class="flex-1 h-full overflow-y-auto relative">
+            <div class="max-w-4xl mx-auto p-8 h-full relative">
               <Suspense>{props.children}</Suspense>
             </div>
           </main>

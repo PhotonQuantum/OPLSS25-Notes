@@ -6,8 +6,8 @@ export default function Article() {
   const params = useParams();
   usePageTitle(params.article);
   return (
-    <main>
+    <>
       <Typst artifact={`assets/${params.article}.multi.sir.in`} />
-    </main>
+    </>
   );
 }

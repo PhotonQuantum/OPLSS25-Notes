@@ -2,11 +2,11 @@ import { Accessor, createEffect, createResource, createSignal, onCleanup, onMoun
 import { TypstContext } from "~/context/typst"
 import injectedCss from "./typst.css?raw";
 // import injectedJs from "@7mile/enhanced-typst-svg/dist/index.min.js?raw"
-import injectedJs from "@7mile/enhanced-typst-svg/dist/index.min.js?url"
+// import injectedJs from "@7mile/enhanced-typst-svg/dist/index.min.js?url"
 import { TypstDomDocument } from "@myriaddreamin/typst.ts/dist/esm/dom.mjs";
 import { createEventListenerMap, makeEventListener, makeEventListenerStack } from "@solid-primitives/event-listener";
 import { Many } from "@solid-primitives/utils"
-// import injectedJs from "./inject.js?url"
+import injectedJs from "./typst_inject?url"
 export type TypstProps = {
   artifact?: string
 }
@@ -31,20 +31,6 @@ export default function Typst(props: TypstProps) {
   const [artifact, setArtifact] = createSignal<Uint8Array | undefined>(undefined)
 
   const [domHandle, setDomHandle] = createSignal<TypstDomDocument>()
-
-  onMount(() => {
-    if (typeof window !== "undefined") {
-      // @ts-ignore
-      window.typstBindSemantics = function () { };
-      // @ts-ignore
-      window.typstBindSvgDom = function () { };
-      // @ts-ignore
-      window.captureStack = function () {
-        return undefined;
-      };
-    }
-    // eval(injectedJs)
-  })
 
   createEffect(async () => {
     if (props.artifact) {
@@ -113,14 +99,6 @@ export default function Typst(props: TypstProps) {
   onCleanup(() => {
     setDomHandle(undefined)
     disposeSession()
-    if (typeof window !== "undefined") {
-      // @ts-ignore
-      window.typstBindSemantics = undefined
-      // @ts-ignore
-      window.typstBindSvgDom = undefined
-      // @ts-ignore
-      window.captureStack = undefined
-    }
   })
 
   const SkeletonPlaceholder = () => (
