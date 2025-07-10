@@ -76,6 +76,18 @@
   ))<article-meta>
 ]
 
+#let set-text-size(c) = {
+  set text(size: 16pt) if is-web-target
+  show heading.where(level: 1): set text(size: 28pt) if is-web-target
+  show heading.where(level: 2): set text(size: 24pt) if is-web-target
+  show heading.where(level: 3): set text(size: 20pt) if is-web-target
+  show heading.where(level: 4): set text(size: 16pt) if is-web-target
+  show heading.where(level: 5): set text(size: 14pt) if is-web-target
+  show heading.where(level: 6): set text(size: 12pt) if is-web-target
+
+  c
+}
+
 #let prelude-init(smcp-simulate: false, title: "Lorem Ipsum", author: "John Doe", body) = {
   set document(title: title, author: plain-text(author))
 
@@ -123,6 +135,8 @@
     width: page-width,
     height: auto,
   ) if is-web-target
+
+  show: set-text-size
 
   show: codly-init.with()
   codly(languages: codly-languages)
