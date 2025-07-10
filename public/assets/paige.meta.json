@@ -1,0 +1,1070 @@
+{
+  "250": [
+    {
+      "author": "Prof. Paige North @ OPLSS25\n Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "388.23pt"
+          },
+          "title": "Category Theory"
+        },
+        {
+          "level": 2,
+          "numbering": "1.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "803.07pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 2,
+          "numbering": "1.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1134.76pt"
+          },
+          "title": "Commutative Diagrams"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1348.29pt"
+          },
+          "title": "Basic Concepts"
+        },
+        {
+          "level": 2,
+          "numbering": "2.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1374.06pt"
+          },
+          "title": "Terminal Object"
+        },
+        {
+          "level": 2,
+          "numbering": "2.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1503.98pt"
+          },
+          "title": "Isomorphism"
+        },
+        {
+          "level": 2,
+          "numbering": "2.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2002.27pt"
+          },
+          "title": "Duality"
+        },
+        {
+          "level": 2,
+          "numbering": "2.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2159.09pt"
+          },
+          "title": "Initial Object"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2395.71pt"
+          },
+          "title": "Product"
+        },
+        {
+          "level": 2,
+          "numbering": "3.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3986.94pt"
+          },
+          "title": "Coproduct"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4134.2pt"
+          },
+          "title": "Syntactic Category of STLC "
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.81pt"
+          },
+          "title": "Functors"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4919.13pt"
+          },
+          "title": "Category of Categories"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "5582.36pt"
+          },
+          "title": "CH-Lambek Correspondence"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6186.6pt"
+          },
+          "title": "Moral"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6274.98pt"
+          },
+          "title": "Bonus: Inductive types ℕ"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6939.77pt"
+          },
+          "title": "References"
+        }
+      ],
+      "title": "Notes for Introduction to Category Theory"
+    }
+  ],
+  "350": [
+    {
+      "author": "Prof. Paige North @ OPLSS25\n Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "388.23pt"
+          },
+          "title": "Category Theory"
+        },
+        {
+          "level": 2,
+          "numbering": "1.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "803.07pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 2,
+          "numbering": "1.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1134.76pt"
+          },
+          "title": "Commutative Diagrams"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1348.29pt"
+          },
+          "title": "Basic Concepts"
+        },
+        {
+          "level": 2,
+          "numbering": "2.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1374.06pt"
+          },
+          "title": "Terminal Object"
+        },
+        {
+          "level": 2,
+          "numbering": "2.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1503.98pt"
+          },
+          "title": "Isomorphism"
+        },
+        {
+          "level": 2,
+          "numbering": "2.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2002.27pt"
+          },
+          "title": "Duality"
+        },
+        {
+          "level": 2,
+          "numbering": "2.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2159.09pt"
+          },
+          "title": "Initial Object"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2395.71pt"
+          },
+          "title": "Product"
+        },
+        {
+          "level": 2,
+          "numbering": "3.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3986.94pt"
+          },
+          "title": "Coproduct"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4134.2pt"
+          },
+          "title": "Syntactic Category of STLC "
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.81pt"
+          },
+          "title": "Functors"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4919.13pt"
+          },
+          "title": "Category of Categories"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "5582.36pt"
+          },
+          "title": "CH-Lambek Correspondence"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6186.6pt"
+          },
+          "title": "Moral"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6274.98pt"
+          },
+          "title": "Bonus: Inductive types ℕ"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6939.77pt"
+          },
+          "title": "References"
+        }
+      ],
+      "title": "Notes for Introduction to Category Theory"
+    }
+  ],
+  "450": [
+    {
+      "author": "Prof. Paige North @ OPLSS25\n Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "388.23pt"
+          },
+          "title": "Category Theory"
+        },
+        {
+          "level": 2,
+          "numbering": "1.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "803.07pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 2,
+          "numbering": "1.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1134.76pt"
+          },
+          "title": "Commutative Diagrams"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1348.29pt"
+          },
+          "title": "Basic Concepts"
+        },
+        {
+          "level": 2,
+          "numbering": "2.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1374.06pt"
+          },
+          "title": "Terminal Object"
+        },
+        {
+          "level": 2,
+          "numbering": "2.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1503.98pt"
+          },
+          "title": "Isomorphism"
+        },
+        {
+          "level": 2,
+          "numbering": "2.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2002.27pt"
+          },
+          "title": "Duality"
+        },
+        {
+          "level": 2,
+          "numbering": "2.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2159.09pt"
+          },
+          "title": "Initial Object"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2395.71pt"
+          },
+          "title": "Product"
+        },
+        {
+          "level": 2,
+          "numbering": "3.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3986.94pt"
+          },
+          "title": "Coproduct"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4134.2pt"
+          },
+          "title": "Syntactic Category of STLC "
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.81pt"
+          },
+          "title": "Functors"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4919.13pt"
+          },
+          "title": "Category of Categories"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "5582.36pt"
+          },
+          "title": "CH-Lambek Correspondence"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6186.6pt"
+          },
+          "title": "Moral"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6274.98pt"
+          },
+          "title": "Bonus: Inductive types ℕ"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6939.77pt"
+          },
+          "title": "References"
+        }
+      ],
+      "title": "Notes for Introduction to Category Theory"
+    }
+  ],
+  "550": [
+    {
+      "author": "Prof. Paige North @ OPLSS25\n Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "388.23pt"
+          },
+          "title": "Category Theory"
+        },
+        {
+          "level": 2,
+          "numbering": "1.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "803.07pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 2,
+          "numbering": "1.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1134.76pt"
+          },
+          "title": "Commutative Diagrams"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1348.29pt"
+          },
+          "title": "Basic Concepts"
+        },
+        {
+          "level": 2,
+          "numbering": "2.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1374.06pt"
+          },
+          "title": "Terminal Object"
+        },
+        {
+          "level": 2,
+          "numbering": "2.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1503.98pt"
+          },
+          "title": "Isomorphism"
+        },
+        {
+          "level": 2,
+          "numbering": "2.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2002.27pt"
+          },
+          "title": "Duality"
+        },
+        {
+          "level": 2,
+          "numbering": "2.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2159.09pt"
+          },
+          "title": "Initial Object"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2395.71pt"
+          },
+          "title": "Product"
+        },
+        {
+          "level": 2,
+          "numbering": "3.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3986.94pt"
+          },
+          "title": "Coproduct"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4134.2pt"
+          },
+          "title": "Syntactic Category of STLC "
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.81pt"
+          },
+          "title": "Functors"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4919.13pt"
+          },
+          "title": "Category of Categories"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "5582.36pt"
+          },
+          "title": "CH-Lambek Correspondence"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6186.6pt"
+          },
+          "title": "Moral"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6274.98pt"
+          },
+          "title": "Bonus: Inductive types ℕ"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6939.77pt"
+          },
+          "title": "References"
+        }
+      ],
+      "title": "Notes for Introduction to Category Theory"
+    }
+  ],
+  "650": [
+    {
+      "author": "Prof. Paige North @ OPLSS25\n Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "388.23pt"
+          },
+          "title": "Category Theory"
+        },
+        {
+          "level": 2,
+          "numbering": "1.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "803.07pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 2,
+          "numbering": "1.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1134.76pt"
+          },
+          "title": "Commutative Diagrams"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1348.29pt"
+          },
+          "title": "Basic Concepts"
+        },
+        {
+          "level": 2,
+          "numbering": "2.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1374.06pt"
+          },
+          "title": "Terminal Object"
+        },
+        {
+          "level": 2,
+          "numbering": "2.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1503.98pt"
+          },
+          "title": "Isomorphism"
+        },
+        {
+          "level": 2,
+          "numbering": "2.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2002.27pt"
+          },
+          "title": "Duality"
+        },
+        {
+          "level": 2,
+          "numbering": "2.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2159.09pt"
+          },
+          "title": "Initial Object"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2395.71pt"
+          },
+          "title": "Product"
+        },
+        {
+          "level": 2,
+          "numbering": "3.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3986.94pt"
+          },
+          "title": "Coproduct"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4134.2pt"
+          },
+          "title": "Syntactic Category of STLC "
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.81pt"
+          },
+          "title": "Functors"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4919.13pt"
+          },
+          "title": "Category of Categories"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "5582.36pt"
+          },
+          "title": "CH-Lambek Correspondence"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6186.6pt"
+          },
+          "title": "Moral"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6274.98pt"
+          },
+          "title": "Bonus: Inductive types ℕ"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6939.77pt"
+          },
+          "title": "References"
+        }
+      ],
+      "title": "Notes for Introduction to Category Theory"
+    }
+  ],
+  "750": [
+    {
+      "author": "Prof. Paige North @ OPLSS25\n Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "388.23pt"
+          },
+          "title": "Category Theory"
+        },
+        {
+          "level": 2,
+          "numbering": "1.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "803.07pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 2,
+          "numbering": "1.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1134.76pt"
+          },
+          "title": "Commutative Diagrams"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1348.29pt"
+          },
+          "title": "Basic Concepts"
+        },
+        {
+          "level": 2,
+          "numbering": "2.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1374.06pt"
+          },
+          "title": "Terminal Object"
+        },
+        {
+          "level": 2,
+          "numbering": "2.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1503.98pt"
+          },
+          "title": "Isomorphism"
+        },
+        {
+          "level": 2,
+          "numbering": "2.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2002.27pt"
+          },
+          "title": "Duality"
+        },
+        {
+          "level": 2,
+          "numbering": "2.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2159.09pt"
+          },
+          "title": "Initial Object"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2395.71pt"
+          },
+          "title": "Product"
+        },
+        {
+          "level": 2,
+          "numbering": "3.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3986.94pt"
+          },
+          "title": "Coproduct"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4134.2pt"
+          },
+          "title": "Syntactic Category of STLC "
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.81pt"
+          },
+          "title": "Functors"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4919.13pt"
+          },
+          "title": "Category of Categories"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "5582.36pt"
+          },
+          "title": "CH-Lambek Correspondence"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6186.6pt"
+          },
+          "title": "Moral"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6274.98pt"
+          },
+          "title": "Bonus: Inductive types ℕ"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "6939.77pt"
+          },
+          "title": "References"
+        }
+      ],
+      "title": "Notes for Introduction to Category Theory"
+    }
+  ]
+}

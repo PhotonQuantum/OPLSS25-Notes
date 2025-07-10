@@ -1,7 +1,9 @@
 #import "/prelude.typ": *
 
-#show: codly-init.with()
-#codly(languages: codly-languages)
+#show: prelude-init.with(
+  title: [Notes for _Ningning_],
+  author: [Notes by: Yanning Chen],
+)
 
 = Effects
 

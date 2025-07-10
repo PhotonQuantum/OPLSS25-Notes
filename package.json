@@ -1,0 +1,35 @@
+{
+  "name": "example-basic",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "version": "vinxi version"
+  },
+  "dependencies": {
+    "@7mile/enhanced-typst-svg": "^0.6.0",
+    "@myriaddreamin/typst-ts-renderer": "0.6.1-rc1",
+    "@myriaddreamin/typst.ts": "0.6.1-rc1",
+    "@solid-primitives/event-listener": "^2.4.3",
+    "@solid-primitives/media": "^2.3.3",
+    "@solid-primitives/utils": "^6.3.2",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.15.3",
+    "@solidjs/start": "^1.1.6",
+    "@tabler/icons": "^3.34.0",
+    "@tailwindcss/vite": "^4.1.11",
+    "enhanced-typst-svg": "link:@myriaddreamin/typst.ts/enhanced-typst-svg",
+    "solid-js": "^1.9.7",
+    "tailwindcss": "^4.1.11",
+    "vinxi": "^0.5.8",
+    "vite-plugin-solid-svg": "^0.8.1"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@myriaddreamin/typst-ts-node-compiler": "0.6.1-rc1",
+    "citty": "^0.1.6"
+  }
+}

@@ -7,7 +7,6 @@
 #import "@preview/shiroa:0.2.3": *
 #import "/prelude/details.typ": *
 #import "/prelude/smcp.typ": *
-#import "/templates/page.typ": project
 
 #let tred(c) = text(fill: colors.red, c)
 #let tblue(c) = text(fill: blue.darken(10%), c)
@@ -37,8 +36,8 @@
 #let page-width = sys.inputs.at("x-page-width", default: 21cm)
 #let is-web-target = target.starts-with("web")
 
-#let emit-heading = context [
-  #metadata(query(heading.where(outlined: true)).map(section => {
+#let __heading-meta() = {
+  query(heading.where(outlined: true)).map(section => {
     let loc = section.location()
     let pos = loc.position()
     let meta = (
@@ -48,7 +47,15 @@
       position: pos,
     )
     meta
-  }))<heading-meta>
+  })
+}
+
+#let emit-meta(title, author) = context [
+  #metadata((
+    title: plain-text(title),
+    author: plain-text(author),
+    headings: __heading-meta(),
+  ))<article-meta>
 ]
 
 #let prelude-init(smcp-simulate: false, title: "Lorem Ipsum", author: "John Doe", body) = {
@@ -110,7 +117,7 @@
   set heading(numbering: "1.1.1")
   outline()
 
-  emit-heading
+  emit-meta(title, author)
 
   body
 }

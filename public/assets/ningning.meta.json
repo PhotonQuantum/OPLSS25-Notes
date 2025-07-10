@@ -1,0 +1,1310 @@
+{
+  "250": [
+    {
+      "author": "Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "431.54pt"
+          },
+          "title": "Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "572.9pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1551.47pt"
+          },
+          "title": "How are algebraic effects algebraic?"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1672.39pt"
+          },
+          "title": "Computational Trees"
+        },
+        {
+          "level": 2,
+          "numbering": "4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1774.97pt"
+          },
+          "title": "As free monads"
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1939.79pt"
+          },
+          "title": "Parametrized"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1965.56pt"
+          },
+          "title": "Parametrized Operations"
+        },
+        {
+          "level": 2,
+          "numbering": "5.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2083.55pt"
+          },
+          "title": "Parametrized Arguments"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2292.7pt"
+          },
+          "title": "Generic Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2454.05pt"
+          },
+          "title": "Example Calculus"
+        },
+        {
+          "level": 2,
+          "numbering": "7.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2479.83pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2703.94pt"
+          },
+          "title": "Effect Handler"
+        },
+        {
+          "level": 2,
+          "numbering": "8.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2729.71pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "8.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3137.72pt"
+          },
+          "title": "Delimited Continuation"
+        },
+        {
+          "level": 2,
+          "numbering": "8.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3351.11pt"
+          },
+          "title": "Handler composition"
+        },
+        {
+          "level": 2,
+          "numbering": "8.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3596.75pt"
+          },
+          "title": "Dynamics"
+        },
+        {
+          "level": 3,
+          "numbering": "8.4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3698.2pt"
+          },
+          "title": "Alternatives"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4088.01pt"
+          },
+          "title": "Effect Type System"
+        },
+        {
+          "level": 2,
+          "numbering": "9.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4113.79pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "9.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4233.83pt"
+          },
+          "title": "Judgment"
+        },
+        {
+          "level": 1,
+          "numbering": "10",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.21pt"
+          },
+          "title": "Runtime Implementation"
+        }
+      ],
+      "title": "Notes for Ningning"
+    }
+  ],
+  "350": [
+    {
+      "author": "Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "431.54pt"
+          },
+          "title": "Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "572.9pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1551.47pt"
+          },
+          "title": "How are algebraic effects algebraic?"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1672.39pt"
+          },
+          "title": "Computational Trees"
+        },
+        {
+          "level": 2,
+          "numbering": "4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1774.97pt"
+          },
+          "title": "As free monads"
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1939.79pt"
+          },
+          "title": "Parametrized"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1965.56pt"
+          },
+          "title": "Parametrized Operations"
+        },
+        {
+          "level": 2,
+          "numbering": "5.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2083.55pt"
+          },
+          "title": "Parametrized Arguments"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2292.7pt"
+          },
+          "title": "Generic Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2454.05pt"
+          },
+          "title": "Example Calculus"
+        },
+        {
+          "level": 2,
+          "numbering": "7.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2479.83pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2703.94pt"
+          },
+          "title": "Effect Handler"
+        },
+        {
+          "level": 2,
+          "numbering": "8.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2729.71pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "8.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3137.72pt"
+          },
+          "title": "Delimited Continuation"
+        },
+        {
+          "level": 2,
+          "numbering": "8.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3351.11pt"
+          },
+          "title": "Handler composition"
+        },
+        {
+          "level": 2,
+          "numbering": "8.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3596.75pt"
+          },
+          "title": "Dynamics"
+        },
+        {
+          "level": 3,
+          "numbering": "8.4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3698.2pt"
+          },
+          "title": "Alternatives"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4088.01pt"
+          },
+          "title": "Effect Type System"
+        },
+        {
+          "level": 2,
+          "numbering": "9.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4113.79pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "9.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4233.83pt"
+          },
+          "title": "Judgment"
+        },
+        {
+          "level": 1,
+          "numbering": "10",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.21pt"
+          },
+          "title": "Runtime Implementation"
+        }
+      ],
+      "title": "Notes for Ningning"
+    }
+  ],
+  "450": [
+    {
+      "author": "Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "431.54pt"
+          },
+          "title": "Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "572.9pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1551.47pt"
+          },
+          "title": "How are algebraic effects algebraic?"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1672.39pt"
+          },
+          "title": "Computational Trees"
+        },
+        {
+          "level": 2,
+          "numbering": "4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1774.97pt"
+          },
+          "title": "As free monads"
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1939.79pt"
+          },
+          "title": "Parametrized"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1965.56pt"
+          },
+          "title": "Parametrized Operations"
+        },
+        {
+          "level": 2,
+          "numbering": "5.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2083.55pt"
+          },
+          "title": "Parametrized Arguments"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2292.7pt"
+          },
+          "title": "Generic Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2454.05pt"
+          },
+          "title": "Example Calculus"
+        },
+        {
+          "level": 2,
+          "numbering": "7.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2479.83pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2703.94pt"
+          },
+          "title": "Effect Handler"
+        },
+        {
+          "level": 2,
+          "numbering": "8.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2729.71pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "8.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3137.72pt"
+          },
+          "title": "Delimited Continuation"
+        },
+        {
+          "level": 2,
+          "numbering": "8.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3351.11pt"
+          },
+          "title": "Handler composition"
+        },
+        {
+          "level": 2,
+          "numbering": "8.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3596.75pt"
+          },
+          "title": "Dynamics"
+        },
+        {
+          "level": 3,
+          "numbering": "8.4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3698.2pt"
+          },
+          "title": "Alternatives"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4088.01pt"
+          },
+          "title": "Effect Type System"
+        },
+        {
+          "level": 2,
+          "numbering": "9.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4113.79pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "9.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4233.83pt"
+          },
+          "title": "Judgment"
+        },
+        {
+          "level": 1,
+          "numbering": "10",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.21pt"
+          },
+          "title": "Runtime Implementation"
+        }
+      ],
+      "title": "Notes for Ningning"
+    }
+  ],
+  "550": [
+    {
+      "author": "Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "431.54pt"
+          },
+          "title": "Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "572.9pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1551.47pt"
+          },
+          "title": "How are algebraic effects algebraic?"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1672.39pt"
+          },
+          "title": "Computational Trees"
+        },
+        {
+          "level": 2,
+          "numbering": "4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1774.97pt"
+          },
+          "title": "As free monads"
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1939.79pt"
+          },
+          "title": "Parametrized"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1965.56pt"
+          },
+          "title": "Parametrized Operations"
+        },
+        {
+          "level": 2,
+          "numbering": "5.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2083.55pt"
+          },
+          "title": "Parametrized Arguments"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2292.7pt"
+          },
+          "title": "Generic Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2454.05pt"
+          },
+          "title": "Example Calculus"
+        },
+        {
+          "level": 2,
+          "numbering": "7.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2479.83pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2703.94pt"
+          },
+          "title": "Effect Handler"
+        },
+        {
+          "level": 2,
+          "numbering": "8.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2729.71pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "8.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3137.72pt"
+          },
+          "title": "Delimited Continuation"
+        },
+        {
+          "level": 2,
+          "numbering": "8.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3351.11pt"
+          },
+          "title": "Handler composition"
+        },
+        {
+          "level": 2,
+          "numbering": "8.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3596.75pt"
+          },
+          "title": "Dynamics"
+        },
+        {
+          "level": 3,
+          "numbering": "8.4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3698.2pt"
+          },
+          "title": "Alternatives"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4088.01pt"
+          },
+          "title": "Effect Type System"
+        },
+        {
+          "level": 2,
+          "numbering": "9.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4113.79pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "9.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4233.83pt"
+          },
+          "title": "Judgment"
+        },
+        {
+          "level": 1,
+          "numbering": "10",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.21pt"
+          },
+          "title": "Runtime Implementation"
+        }
+      ],
+      "title": "Notes for Ningning"
+    }
+  ],
+  "650": [
+    {
+      "author": "Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "431.54pt"
+          },
+          "title": "Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "572.9pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1551.47pt"
+          },
+          "title": "How are algebraic effects algebraic?"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1672.39pt"
+          },
+          "title": "Computational Trees"
+        },
+        {
+          "level": 2,
+          "numbering": "4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1774.97pt"
+          },
+          "title": "As free monads"
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1939.79pt"
+          },
+          "title": "Parametrized"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1965.56pt"
+          },
+          "title": "Parametrized Operations"
+        },
+        {
+          "level": 2,
+          "numbering": "5.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2083.55pt"
+          },
+          "title": "Parametrized Arguments"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2292.7pt"
+          },
+          "title": "Generic Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2454.05pt"
+          },
+          "title": "Example Calculus"
+        },
+        {
+          "level": 2,
+          "numbering": "7.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2479.83pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2703.94pt"
+          },
+          "title": "Effect Handler"
+        },
+        {
+          "level": 2,
+          "numbering": "8.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2729.71pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "8.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3137.72pt"
+          },
+          "title": "Delimited Continuation"
+        },
+        {
+          "level": 2,
+          "numbering": "8.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3351.11pt"
+          },
+          "title": "Handler composition"
+        },
+        {
+          "level": 2,
+          "numbering": "8.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3596.75pt"
+          },
+          "title": "Dynamics"
+        },
+        {
+          "level": 3,
+          "numbering": "8.4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3698.2pt"
+          },
+          "title": "Alternatives"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4088.01pt"
+          },
+          "title": "Effect Type System"
+        },
+        {
+          "level": 2,
+          "numbering": "9.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4113.79pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "9.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4233.83pt"
+          },
+          "title": "Judgment"
+        },
+        {
+          "level": 1,
+          "numbering": "10",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.21pt"
+          },
+          "title": "Runtime Implementation"
+        }
+      ],
+      "title": "Notes for Ningning"
+    }
+  ],
+  "750": [
+    {
+      "author": "Notes by: Yanning Chen",
+      "headings": [
+        {
+          "level": 1,
+          "numbering": "1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "431.54pt"
+          },
+          "title": "Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "572.9pt"
+          },
+          "title": "Definition"
+        },
+        {
+          "level": 1,
+          "numbering": "3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1551.47pt"
+          },
+          "title": "How are algebraic effects algebraic?"
+        },
+        {
+          "level": 1,
+          "numbering": "4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1672.39pt"
+          },
+          "title": "Computational Trees"
+        },
+        {
+          "level": 2,
+          "numbering": "4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1774.97pt"
+          },
+          "title": "As free monads"
+        },
+        {
+          "level": 1,
+          "numbering": "5",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1939.79pt"
+          },
+          "title": "Parametrized"
+        },
+        {
+          "level": 2,
+          "numbering": "5.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "1965.56pt"
+          },
+          "title": "Parametrized Operations"
+        },
+        {
+          "level": 2,
+          "numbering": "5.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2083.55pt"
+          },
+          "title": "Parametrized Arguments"
+        },
+        {
+          "level": 1,
+          "numbering": "6",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2292.7pt"
+          },
+          "title": "Generic Effects"
+        },
+        {
+          "level": 1,
+          "numbering": "7",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2454.05pt"
+          },
+          "title": "Example Calculus"
+        },
+        {
+          "level": 2,
+          "numbering": "7.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2479.83pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 1,
+          "numbering": "8",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2703.94pt"
+          },
+          "title": "Effect Handler"
+        },
+        {
+          "level": 2,
+          "numbering": "8.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "2729.71pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "8.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3137.72pt"
+          },
+          "title": "Delimited Continuation"
+        },
+        {
+          "level": 2,
+          "numbering": "8.3",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3351.11pt"
+          },
+          "title": "Handler composition"
+        },
+        {
+          "level": 2,
+          "numbering": "8.4",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3596.75pt"
+          },
+          "title": "Dynamics"
+        },
+        {
+          "level": 3,
+          "numbering": "8.4.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "3698.2pt"
+          },
+          "title": "Alternatives"
+        },
+        {
+          "level": 1,
+          "numbering": "9",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4088.01pt"
+          },
+          "title": "Effect Type System"
+        },
+        {
+          "level": 2,
+          "numbering": "9.1",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4113.79pt"
+          },
+          "title": "Syntax"
+        },
+        {
+          "level": 2,
+          "numbering": "9.2",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4233.83pt"
+          },
+          "title": "Judgment"
+        },
+        {
+          "level": 1,
+          "numbering": "10",
+          "position": {
+            "page": 1,
+            "x": "20pt",
+            "y": "4561.21pt"
+          },
+          "title": "Runtime Implementation"
+        }
+      ],
+      "title": "Notes for Ningning"
+    }
+  ]
+}
