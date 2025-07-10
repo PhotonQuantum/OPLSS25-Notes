@@ -1,6 +1,9 @@
 import { Title } from "@solidjs/meta";
+import { usePageTitle } from "~/context/title";
 
 export default function About() {
+  usePageTitle("About");
+
   return (
     <>
       <Title>About - Conference Notes</Title>

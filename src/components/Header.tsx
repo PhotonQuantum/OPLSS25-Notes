@@ -1,14 +1,16 @@
 import { Show } from "solid-js";
 import SvgMenu from "@tabler/icons/outline/menu-2.svg";
 import SvgBrandGithub from "@tabler/icons/outline/brand-github.svg";
+import { useTitle } from "~/context/title";
 
 interface HeaderProps {
-  title: string;
   onToggleSidebar: () => void;
   isSidebarOpen: boolean;
 }
 
 export default function Header(props: HeaderProps) {
+  const { title } = useTitle();
+
   const handleGitHubClick = () => {
     window.open("https://github.com/your-username", "_blank");
   };
@@ -27,7 +29,7 @@ export default function Header(props: HeaderProps) {
       
       <div class="flex-1 flex justify-center">
         <h1 class="text-xl font-semibold text-gray-900 truncate">
-          {props.title}
+          {title()}
         </h1>
       </div>
       

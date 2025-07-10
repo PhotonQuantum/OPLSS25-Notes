@@ -7,6 +7,7 @@ import "./app.css";
 import Sidebar from "~/components/Sidebar";
 import Header from "~/components/Header";
 import { TypstProvider } from "./context/typst";
+import { TitleProvider } from "./context/title";
 
 export default function App() {
   const isLargeScreen = createMediaQuery("(min-width: 1024px)");
@@ -22,28 +23,13 @@ export default function App() {
   };
 
   const AppContent = (props: any) => {
-    const location = useLocation();
-
-    const currentTitle = createMemo(() => {
-      const path = location.pathname;
-      const titleMap: Record<string, string> = {
-        "/": "Index",
-        "/about": "About",
-        "/paige": "Paige",
-        "/ningning": "Ningning",
-      };
-
-      return titleMap[path] || "Conference Notes";
-    });
-
     return (
       <div class="flex min-h-screen bg-white">
         <div class={`transition-all duration-300 ${isSidebarOpen() ? "w-64" : "w-0"}`}>
-          <Sidebar isOpen={isSidebarOpen()} onTitleChange={() => { }} />
+          <Sidebar isOpen={isSidebarOpen()} />
         </div>
         <div class="flex-1 flex flex-col min-w-0">
-          <Header
-            title={currentTitle()}
+          <Header 
             onToggleSidebar={toggleSidebar}
             isSidebarOpen={isSidebarOpen()}
           />
@@ -59,12 +45,14 @@ export default function App() {
 
   return (
     <MetaProvider>
-      <TypstProvider>
-        <Title>Conference Notes</Title>
-        <Router root={AppContent}>
-          <FileRoutes />
-        </Router>
-      </TypstProvider>
+      <TitleProvider>
+        <TypstProvider>
+          <Title>Conference Notes</Title>
+          <Router root={AppContent}>
+            <FileRoutes />
+          </Router>
+        </TypstProvider>
+      </TitleProvider>
     </MetaProvider>
   );
 }

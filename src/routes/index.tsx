@@ -1,9 +1,12 @@
 import { Title } from "@solidjs/meta";
+import { usePageTitle } from "~/context/title";
 
 export default function Home() {
+  usePageTitle("Home");
+
   return (
     <>
-      <Title>Index</Title>
+      <Title>Home</Title>
       <div class="prose prose-lg max-w-none">
         <h1 class="text-3xl font-bold text-gray-900 mb-6">
           Title
