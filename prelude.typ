@@ -32,8 +32,26 @@
 
 #let mathpar(..rules) = block(rules.pos().map(prooftree).map(c => box(inset: 5pt, c)).join(h(0.5cm)))
 
+#let __parse-length(s) = {
+  if type(s) == str {
+    let unit = s.slice(-2)
+    let value = int(s.slice(0, -2))
+    if unit == "cm" {
+      value * 1cm
+    } else if unit == "pt" {
+      value * 1pt
+    } else {
+      panic("Unknown unit: " + unit)
+    }
+  } else if type(s) == length {
+    s
+  } else {
+    panic("Unknown type: " + type(s))
+  }
+}
+
 #let target = sys.inputs.at("x-target", default: "pdf")
-#let page-width = sys.inputs.at("x-page-width", default: 21cm)
+#let page-width = __parse-length(sys.inputs.at("x-page-width", default: "21cm"))
 #let is-web-target = target.starts-with("web")
 
 #let __heading-meta() = {
@@ -102,6 +120,7 @@
       // remove rest margins.
       rest: 0pt,
     ),
+    width: page-width,
     height: auto,
   ) if is-web-target
 
