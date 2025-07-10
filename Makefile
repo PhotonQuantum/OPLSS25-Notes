@@ -1,31 +1,22 @@
 # Typst files to compile (excluding prelude.typ)
-SOURCES = $(shell find src -name "*.typ")
-PDFS = $(SOURCES:src/%.typ=pdfs/%.pdf)
+SOURCES = $(shell find typ -name "*.typ")
+PDFS = $(SOURCES:typ/%.typ=pdfs/%.pdf)
 FONT_PATH = $(PWD)/prelude/fonts
 
 # Default target
-all: all-pdfs book
+all: all-pdfs
 
 all-pdfs: $(PDFS)
 
 # Rule to compile .typ files to .pdf
-pdfs/%.pdf: src/%.typ
+pdfs/%.pdf: typ/%.typ
 	typst compile --root $(PWD) --font-path $(FONT_PATH) $< $@
-
-# Rule to build book
-book: dist/.timestamp
-dist/.timestamp: | $(SOURCES)
-	mkdir -p dist && shiroa build --font-path $(FONT_PATH) && touch $@
 
 # Clean generated PDFs
 clean-pdfs:
 	rm -f $(PDFS)
 
-# Clean generated book
-clean-book:
-	rm -rf dist
-
-clean: clean-pdfs clean-book
+clean: clean-pdfs
 
 # Phony targets
-.PHONY: all all-pdfs book clean clean-pdfs clean-book
+.PHONY: all all-pdfs clean clean-pdfs

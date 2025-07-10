@@ -33,29 +33,28 @@
 
 #let mathpar(..rules) = block(rules.pos().map(prooftree).map(c => box(inset: 5pt, c)).join(h(0.5cm)))
 
-#let pdf-only(c) = context {
-  if is-pdf-target() {
-    c
-  }
-}
+#let target = sys.inputs.at("x-target", default: "pdf")
+#let page-width = sys.inputs.at("x-page-width", default: 21cm)
+#let is-web-target = target.starts-with("web")
 
-#let web-only(c) = context {
-  if is-web-target() {
-    c
-  }
-}
-
-#let __heading_collection = state("heading-collection", [])
+#let emit-heading = context [
+  #metadata(query(heading.where(outlined: true)).map(section => {
+    let loc = section.location()
+    let pos = loc.position()
+    let meta = (
+      title: plain-text(section.body),
+      level: section.level,
+      numbering: numbering(section.numbering, ..counter(heading).at(loc)),
+      position: pos,
+    )
+    meta
+  }))<heading-meta>
+]
 
 #let prelude-init(smcp-simulate: false, title: "Lorem Ipsum", author: "John Doe", body) = {
-  show: project.with(title: title)
+  set document(title: title, author: plain-text(author))
 
   set-smcp(simulate: smcp-simulate)
-
-  show heading: h => {
-    __heading_collection.update(it => it + h)
-    h
-  }
 
   show smallcaps: set text(font: "Libertinus Serif")
   show math.equation: set text(font: "Libertinus Math")
@@ -82,7 +81,22 @@
         ]
       ]
     }
-  })
+  }) if not is-web-target
+
+  set page(
+    margin: (
+      // reserved beautiful top margin
+      top: 20pt,
+      // reserved for our heading style.
+      // If you apply a different heading style, you may remove it.
+      left: 20pt,
+      // Typst is setting the page's bottom to the baseline of the last line of text. So bad :(.
+      bottom: 0.5em,
+      // remove rest margins.
+      rest: 0pt,
+    ),
+    height: auto,
+  ) if is-web-target
 
   show: codly-init.with()
   codly(languages: codly-languages)
@@ -95,6 +109,8 @@
 
   set heading(numbering: "1.1.1")
   outline()
+
+  emit-heading
 
   body
 }
