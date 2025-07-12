@@ -1,5 +1,5 @@
-import { A } from "@solidjs/router";
-import { createSignal, JSX, Show } from "solid-js";
+import { A, useHref, useLocation, useResolvedPath } from "@solidjs/router";
+import { createEffect, createSignal, JSX, Show, createMemo } from "solid-js";
 import SvgChevronRight from "@tabler/icons/outline/chevron-right.svg";
 import { metaJsons, typstArtifacts } from "~/assets/typst";
 import { convertMetaToSections, Section } from "~/typst/meta";
@@ -14,8 +14,39 @@ interface NavItemProps {
   children?: JSX.Element;
   defaultExpanded?: boolean;
 }
+const trimPathRegex = /^\/+|(\/)\/+$/g;
 
+function normalizePath(path: string, omitSlash: boolean = false) {
+  const s = path.replace(trimPathRegex, "$1");
+  return s ? (omitSlash || /^[?#]/.test(s) ? s : "/" + s) : "";
+}
+
+function extractHash(href: string): string {
+  const hashIndex = href.indexOf('#');
+  if (hashIndex === -1) {
+    return '';
+  }
+  return href.substring(hashIndex + 1);
+}
+
+// TODO expand all ancestor items when active
 function NavItem(props: NavItemProps) {
+  const to = useResolvedPath(() => props.href!);
+  const location = useLocation();
+  const active = createMemo(() => {
+    const to_ = to();
+    if (to_ === undefined) return false;
+    const path = normalizePath(to_.split(/[?#]/, 1)[0]).toLowerCase();
+    const loc = decodeURI(normalizePath(location.pathname).toLowerCase());
+    const urlMatch = (path === "" ? false : loc.startsWith(path + "/")) || loc === path
+    if (!to_.includes("#") || to_.endsWith("#0")) {
+      return urlMatch
+    }
+    const toHash = extractHash(to_)
+    const currentHash = location.hash.slice(1)
+    return urlMatch && toHash === currentHash
+  });
+
   const hasChildren = () => {
     return "children" in props;
   }
@@ -30,8 +61,7 @@ function NavItem(props: NavItemProps) {
     <Show when={hasChildren()} fallback={
       <A
         href={props.href!}
-        class="block p-2 ml-5 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors"
-        activeClass="bg-gray-100 text-gray-900"
+        class={`block p-2 ml-5 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors ${active() ? "bg-gray-100 text-gray-900" : ""}`}
       >
         {props.title}
       </A>
@@ -57,8 +87,7 @@ function NavItem(props: NavItemProps) {
           }>
             <A
               href={props.href!}
-              class="flex-1 block p-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors"
-              activeClass="bg-gray-100 text-gray-900"
+              class={`flex-1 block p-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors ${active() ? "bg-gray-100 text-gray-900" : ""}`}
             >
               {props.title}
             </A>
@@ -109,7 +138,7 @@ function renderSectionTree(tree: SectionTree[], name: string): JSX.Element[] {
   return tree.map((node) => {
     const title = node.section.title;
     const href = `/${name}#${node.section.hash}`;
-    
+
     if (node.children.length > 0) {
       return (
         <NavItem title={title} href={href}>
@@ -126,9 +155,9 @@ function ItemForTypst(name: string) {
   const metaJson = metaJsons[`/src/assets/typst/${name}.meta.json`]
   const sections = convertMetaToSections(metaJson)
   const sectionTree = buildSectionTree(sections);
-  
+
   return (
-    <NavItem title={name} href={`/${name}`}>
+    <NavItem title={name} href={`/${name}#0`}>
       {renderSectionTree(sectionTree, name)}
     </NavItem>
   )
