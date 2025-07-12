@@ -3,16 +3,19 @@ import { TypstContext } from "~/context/typst"
 import { TypstDomDocument } from "@myriaddreamin/typst.ts/dist/esm/dom.mjs";
 import { createEventListenerMap } from "@solid-primitives/event-listener";
 import { Many } from "@solid-primitives/utils"
-import { injectLocationEventDispatcher, createLocationEventHandler } from "~/typst/location";
+import { injectLocationEventDispatcher, createLocationEventHandler, NewTypstLocationEvent, findSvgRoot, getPageWidth } from "~/typst/location";
 import injectTypst from "~/typst/inject";
 import "~/typst/typst.css";
+import { LocationMapOfSizes } from "~/typst/meta";
 
 export type TypstProps = {
   artifact?: string,
+  locationMap?: LocationMapOfSizes,
   scrollMargin?: {
-    top?: Accessor<string|undefined>,
-    bottom?: Accessor<string|undefined>,
+    top?: Accessor<string | undefined>,
+    bottom?: Accessor<string | undefined>,
   },
+  jumpKey?: Accessor<string | undefined>,
   onLoaded?: () => void,
 }
 
@@ -47,6 +50,28 @@ export default function Typst(props: TypstProps) {
     }
   })
 
+  createEffect(() => {
+    if (isLoading()) return // wait for dom to be ready
+    const jumpKey = props.jumpKey?.()
+    const localLocationMap = props.locationMap
+    const localContainer = container()
+    if (jumpKey && localContainer && localLocationMap) {
+      console.log("jumpKey triggered", jumpKey)
+      if (jumpKey === "0") {
+        localContainer.dispatchEvent(NewTypstLocationEvent(1, 0, 0, { behavior: "smooth" }))
+        return
+      }
+      const pageWidth = getPageWidth(localContainer)
+      const size = Object.keys(localLocationMap).map(Number).toSorted((a, b) => b - a).find(size => size <= pageWidth)
+      if (!size) return
+      const locations = localLocationMap[size][jumpKey]
+      if (locations) {
+        const location = locations[0]
+        localContainer.dispatchEvent(NewTypstLocationEvent(location.page, location.x, location.y, { behavior: "smooth" }))
+      }
+    }
+  })
+
   createEffect(async () => {
     if (props.artifact) {
       setIsLoading(true)
@@ -57,8 +82,6 @@ export default function Typst(props: TypstProps) {
       } catch (err) {
         console.error("error fetching artifact", err)
         setError(err instanceof Error ? err.message : "Unknown error")
-      } finally {
-        setIsLoading(false)
       }
     } else {
       setArtifact(undefined)
@@ -71,18 +94,20 @@ export default function Typst(props: TypstProps) {
     const localRenderer = renderer()
     const localContainer = container()
     if (localRenderer && localContainer && !loaded) {
-      localRenderer.runWithSession((session) => new Promise(async (resolve) => {
-        console.log("renderDom", localContainer)
-        const dom = await localRenderer.renderDom({
-          renderSession: session,
-          container: localContainer,
-          pixelPerPt: 4.5,
-        })
-        setDomHandle(dom);
-        props.onLoaded?.()
-        disposeSession = () => resolve(null)
-      }))
-      return true;
+      requestAnimationFrame(() => {
+        localRenderer.runWithSession((session) => new Promise(async (resolve) => {
+          console.log("renderDom", localContainer)
+          const dom = await localRenderer.renderDom({
+            renderSession: session,
+            container: localContainer,
+            pixelPerPt: 4.5,
+          })
+          setDomHandle(dom);
+          props.onLoaded?.()
+          disposeSession = () => resolve(null)
+        }))
+        return true;
+      })
     }
     return false;
   }, false);
@@ -114,7 +139,12 @@ export default function Typst(props: TypstProps) {
       setRippleLeft(left)
       setRippleTop(top)
       setRippleVisible(true)
-    })
+    }),
+    "typst:svg-done": (event: Event) => {
+      event.stopPropagation()
+      event.preventDefault()
+      setIsLoading(false)
+    }
   })
 
   onCleanup(() => {
@@ -123,13 +153,13 @@ export default function Typst(props: TypstProps) {
   })
 
   const SkeletonPlaceholder = () => (
-    <div class="animate-pulse bg-gray-200 rounded-lg h-96 flex items-center justify-center">
+    <div class="absolute animate-pulse bg-gray-200 rounded-lg min-h-96 h-full w-full flex items-center justify-center z-10">
       <div class="text-gray-500">Loading document...</div>
     </div>
   )
 
   const ErrorPlaceholder = () => (
-    <div class="bg-red-50 border border-red-200 rounded-lg h-96 flex items-center justify-center">
+    <div class="absolute bg-red-50 border border-red-200 rounded-lg min-h-96 h-full w-full flex items-center justify-center z-10">
       <div class="text-red-600">Error loading document: {error()}</div>
     </div>
   )
@@ -139,7 +169,7 @@ export default function Typst(props: TypstProps) {
       {isLoading() && <SkeletonPlaceholder />}
       {error() && <ErrorPlaceholder />}
       <div
-        class="typst-app typst-doc"
+        class={`typst-app typst-doc ${isLoading() ? "opacity-0" : "opacity-100"}`}
         ref={el => setContainer(el)}
       />
       <div class="absolute w-1 h-1" ref={el => setAnchorElem(el)} style={{

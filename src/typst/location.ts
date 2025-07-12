@@ -1,18 +1,22 @@
 import { Accessor, untrack } from "solid-js";
 
 export type TypstLocationOptions = { behavior: ScrollBehavior }
-export type TypstLocationEventDetail = { elem: Element, page: number, x: number, y: number, options: TypstLocationOptions }
+export type TypstLocationEventDetail = { page: number, x: number, y: number, options: TypstLocationOptions }
 export type TypstLocationEvent = CustomEvent<TypstLocationEventDetail>
 
-function locationEventDispatcher(elem: Element, page: number, x: number, y: number, options: TypstLocationOptions) {
-  console.log("handleTypstLocation - dispatching event", elem, page, x, y, options);
-
-  // Create custom event with location data
-  const locationEvent = new CustomEvent('typst:location', {
-    detail: { elem, page, x, y, options },
+export const NewTypstLocationEvent = (page: number, x: number, y: number, options: TypstLocationOptions) => {
+  return new CustomEvent('typst:location', {
+    detail: { page, x, y, options },
     bubbles: true,  // Allow event to bubble up
     cancelable: true
-  });
+  })
+}
+
+function locationEventDispatcher(elem: Element, page: number, x: number, y: number, options: TypstLocationOptions) {
+  console.log("handleTypstLocation - dispatching event", page, x, y, options);
+
+  // Create custom event with location data
+  const locationEvent = NewTypstLocationEvent(page, x, y, options)
 
   // Dispatch on the element - it will bubble up to document containers
   elem.dispatchEvent(locationEvent);
@@ -23,7 +27,7 @@ function locationEventDispatcher(elem: Element, page: number, x: number, y: numb
   }
 }
 
-const findSvgRoot = (docRoot: HTMLElement, page: number) => {
+export const findSvgRoot = (docRoot: HTMLElement, page: number) => {
   for (const h of docRoot.children) {
     if (h.classList.contains("typst-dom-page")) {
       const idx = Number.parseInt(h.getAttribute("data-index") || "999");
@@ -39,6 +43,22 @@ const findSvgRoot = (docRoot: HTMLElement, page: number) => {
       }
     }
   }
+}
+
+export const getPageWidth = (docRoot: HTMLElement, page: number = 1) => {
+  const svgRoot = findSvgRoot(docRoot, page);
+  if (!svgRoot) {
+    return 0;
+  }
+  return Number.parseFloat(svgRoot.getAttribute('data-width') || svgRoot.getAttribute('width') || '0');
+}
+
+export const getPageHeight = (docRoot: HTMLElement, page: number = 1) => {
+  const svgRoot = findSvgRoot(docRoot, page);
+  if (!svgRoot) {
+    return 0;
+  }
+  return Number.parseFloat(svgRoot.getAttribute('data-height') || svgRoot.getAttribute('height') || '0');
 }
 
 
@@ -60,14 +80,8 @@ export function createLocationEventHandler(docRoot: Accessor<HTMLElement | undef
       return;
     }
 
-    const dataWidth =
-      Number.parseFloat(
-        svgRoot.getAttribute('data-width') || svgRoot.getAttribute('width') || '0',
-      ) || 0;
-    const dataHeight =
-      Number.parseFloat(
-        svgRoot.getAttribute('data-height') || svgRoot.getAttribute('height') || '0',
-      ) || 0;
+    const dataWidth = getPageWidth(localDocRoot, page);
+    const dataHeight = getPageHeight(localDocRoot, page);
     const svgRectBase = svgRoot.getBoundingClientRect();
     const svgRect = {
       left: svgRectBase.left,
@@ -105,8 +119,8 @@ export function createLocationEventHandler(docRoot: Accessor<HTMLElement | undef
     event.stopPropagation();
     event.preventDefault();
 
-    const { elem, page, x, y, options } = event.detail;
-    console.log("handleTypstLocation - handling event", elem, page, x, y, options);
+    const { page, x, y, options } = event.detail;
+    console.log("handleTypstLocation - handling event", page, x, y, options);
 
     handler(page, x, y, options);
   }

@@ -645,6 +645,7 @@ const inject = (function () {
   // @ts-ignore
   window.typstBindSvgDom = function (input) {
     console.log("typstBindSvgDom", input);
+    input.dispatchEvent(new CustomEvent('typst:svg-done', { bubbles: true, cancelable: true }))
   };
   // @ts-ignore
   window.captureStack = function () {
