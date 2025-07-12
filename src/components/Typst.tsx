@@ -12,7 +12,8 @@ export type TypstProps = {
   scrollMargin?: {
     top?: Accessor<string|undefined>,
     bottom?: Accessor<string|undefined>,
-  }
+  },
+  onLoaded?: () => void,
 }
 
 
@@ -78,6 +79,7 @@ export default function Typst(props: TypstProps) {
           pixelPerPt: 4.5,
         })
         setDomHandle(dom);
+        props.onLoaded?.()
         disposeSession = () => resolve(null)
       }))
       return true;

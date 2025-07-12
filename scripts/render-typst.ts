@@ -30,7 +30,7 @@ const collectMeta = (entry: string, breakpoints: number[], compiler: NodeCompile
 
             return {
                 breakpoint,
-                meta: result
+                meta: result[0]
             };
         } catch (error) {
             console.warn(`Failed to query meta for breakpoint ${breakpoint}:`, error);
