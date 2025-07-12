@@ -9,6 +9,10 @@ import "~/typst/typst.css";
 
 export type TypstProps = {
   artifact?: string,
+  scrollMargin?: {
+    top?: Accessor<string|undefined>,
+    bottom?: Accessor<string|undefined>,
+  }
 }
 
 
@@ -136,7 +140,10 @@ export default function Typst(props: TypstProps) {
         class="typst-app typst-doc"
         ref={el => setContainer(el)}
       />
-      <div class="absolute w-1 h-1" ref={el => setAnchorElem(el)} />
+      <div class="absolute w-1 h-1" ref={el => setAnchorElem(el)} style={{
+        "scroll-margin-top": props.scrollMargin?.top?.(),
+        "scroll-margin-bottom": props.scrollMargin?.bottom?.(),
+      }} />
       <div class={`absolute w-0 h-0 border-cyan-400 border-2 rounded-full ${rippleVisible() ? "visible animate-[typst-jump-ripple-effect_1s_linear]" : "hidden"}`}
         style={{ left: `${rippleLeft()}px`, top: `${rippleTop()}px` }}
         onAnimationEnd={() => setRippleVisible(false)}
