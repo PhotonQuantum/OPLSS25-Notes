@@ -1,4 +1,4 @@
-(function () {
+const inject = (function () {
   // debounce https://stackoverflow.com/questions/23181243/throttling-a-mousemove-event-to-fire-no-more-than-5-times-a-second
   // ignore fast events, good for capturing double click
   // @param (callback): function to be run when done
@@ -68,8 +68,7 @@
     relatedElements?: Element[];
   }
 
-  // @ts-ignore
-  const gr = (window.typstGetRelatedElements = (elem: ElementState) => {
+  const gr = ((window as any).typstGetRelatedElements = (elem: ElementState) => {
     let relatedElements = elem.relatedElements;
     if (relatedElements === undefined || relatedElements === null) {
       relatedElements = elem.relatedElements = searchIntersections(elem);
@@ -200,8 +199,7 @@
     flow: HTMLDivElement[];
   }
 
-  // @ts-ignore
-  window.typstProcessSvg = function (docRoot: SVGElement, options?: ProcessOptions) {
+  (window as any).typstProcessSvg = function (docRoot: SVGElement, options?: ProcessOptions) {
     var elements = docRoot.getElementsByClassName('pseudo-link');
 
     for (var i = 0; i < elements.length; i++) {
@@ -221,61 +219,18 @@
 .tsel span { position: relative !important; width: fit-content !important;  }`;
         document.getElementsByTagName('head')[0].appendChild(style);
 
-        // @ts-ignore
-        window.layoutText(docRoot);
+        (window as any).layoutText(docRoot);
       }, 0);
     }
 
-    docRoot.addEventListener('click', (event: MouseEvent) => {
-      let elem: HTMLElement | null = event.target as HTMLElement;
-      while (elem) {
-        const span = elem.getAttribute('data-span');
-        if (span) {
-          console.log('source-span of this svg element', span);
+    // NOTE debug ripple removed
 
-          const docRoot = document.body || document.firstElementChild;
-          const basePos = docRoot.getBoundingClientRect();
-
-          const vw = window.innerWidth || 0;
-          const left = event.clientX - basePos.left + 0.015 * vw;
-          const top = event.clientY - basePos.top + 0.015 * vw;
-
-          triggerRipple(
-            docRoot,
-            left,
-            top,
-            'typst-debug-react-ripple',
-            'typst-debug-react-ripple-effect .4s linear',
-          );
-          return;
-        }
-        elem = elem.parentElement;
-      }
-    });
-
-    if (window.location.hash) {
-      // console.log('hash', window.location.hash);
-
-      // parse location.hash = `loc-${page}x${x.toFixed(2)}x${y.toFixed(2)}`;
-      const hash = window.location.hash;
-      const hashParts = hash.split('-');
-      if (hashParts.length === 2 && hashParts[0] === '#loc') {
-        const locParts = hashParts[1].split('x');
-        if (locParts.length === 3) {
-          const page = Number.parseInt(locParts[0]);
-          const x = Number.parseFloat(locParts[1]);
-          const y = Number.parseFloat(locParts[2]);
-          // @ts-ignore
-          window.handleTypstLocation(docRoot, page, x, y);
-        }
-      }
-    }
+    // NOTE hash jump removed
   };
 
   const LB = '\n'.codePointAt(0)!;
 
-  // @ts-ignore
-  window.layoutText = async function (svg: Element) {
+  (window as any).layoutText = async function (svg: Element) {
     const allElements = Array.from(
       svg.querySelectorAll('.tsel, .typst-content-hint, .pseudo-link'),
     ) as HTMLDivElement[];
@@ -613,177 +568,6 @@
     }
   };
 
-  interface HandleOptions {
-    behavior: ScrollBehavior;
-    isDom?: boolean;
-  }
-  // @ts-ignore
-  window.handleTypstLocation = function (
-    elem: Element,
-    page: number,
-    x: number,
-    y: number,
-    options?: HandleOptions,
-  ) {
-
-    console.log('handleTypstLocation', elem, page, x, y, options);
-
-    if (elem.classList.contains('typst-semantic-layer')) {
-      elem = elem.firstElementChild!;
-      // @ts-ignore
-      return elem && window.handleTypstLocation(elem, page, x, y, options);
-    }
-    const behavior = options?.behavior || 'smooth';
-    const assignHashLoc =
-      // @ts-ignore
-      window.assignSemaHash ||
-      ((u: number, x: number, y: number) => {
-        // todo: multiple documents
-        location.hash = `loc-${u}x${x.toFixed(2)}x${y.toFixed(2)}`;
-      });
-    // todo: abstraction
-    let docRoot = elem;
-
-    const scrollToElem = (elem: SVGGElement) => {
-      const dataWidth =
-        Number.parseFloat(
-          docRoot.getAttribute('data-width') || docRoot.getAttribute('width') || '0',
-        ) || 0;
-      const dataHeight =
-        Number.parseFloat(
-          docRoot.getAttribute('data-height') || docRoot.getAttribute('height') || '0',
-        ) || 0;
-      // console.log(elem, vw, vh, x, y, dataWidth, dataHeight, docRoot);
-      const svgRectBase = docRoot.getBoundingClientRect();
-      const svgRect = {
-        left: svgRectBase.left,
-        top: svgRectBase.top,
-        width: svgRectBase.width,
-        height: svgRectBase.height,
-      };
-
-      const transform = elem.transform?.baseVal?.consolidate()?.matrix;
-      if (transform) {
-        // console.log(transform.e, transform.f);
-        svgRect.left += (transform.e / dataWidth) * svgRect.width;
-        svgRect.top += (transform.f / dataHeight) * svgRect.height;
-      }
-
-      const scrollRoot = findAncestor(elem, 'overflow-y-auto') || document.body || document.firstElementChild;
-      const basePos = scrollRoot.getBoundingClientRect();
-
-      // evaluate current display size
-      const pw = scrollRoot.clientWidth * 0.01;
-      const ph = scrollRoot.clientHeight * 0.01;
-
-      const xOffsetInnerFix =7 * pw;
-      const yOffsetInnerFix = 38.2 * ph;
-
-      const xOffset = svgRect.left - basePos.left + (x / dataWidth) * svgRect.width - xOffsetInnerFix;
-      const yOffset = svgRect.top - basePos.top + (y / dataHeight) * svgRect.height - yOffsetInnerFix;
-      const left = xOffset + xOffsetInnerFix;
-      const top = yOffset + yOffsetInnerFix;
-
-      console.log('scrollToElem', scrollRoot, xOffset, yOffset);
-
-      scrollRoot.scrollTo({ behavior, left: xOffset, top: yOffset });
-
-      if (behavior !== 'instant') {
-        triggerRipple(
-          scrollRoot,
-          left,
-          top,
-          'typst-jump-ripple',
-          'typst-jump-ripple-effect 1s linear',
-        );
-      }
-
-      assignHashLoc(page, x, y);
-      console.log('scrollToElem done');
-      return;
-    };
-
-    if (options?.isDom) {
-      scrollToElem(docRoot as SVGGElement);
-      return;
-    }
-
-    docRoot = findAncestor(elem, 'typst-doc');
-    if (!docRoot) {
-      console.warn('no typst-doc or typst-svg-page found', elem);
-      return;
-    }
-
-    const children = docRoot.children;
-    let nthPage = 0;
-    for (let i = 0; i < children.length; i++) {
-      if (children[i].tagName === 'g' || children[i].tagName === 'stub') {
-        nthPage++;
-      }
-      if (nthPage == page) {
-        scrollToElem(children[i] as SVGGElement);
-      }
-    }
-  };
-  // @ts-ignore
-  const baseHandleTypstLocation = window.handleTypstLocation;
-  // @ts-ignore
-  window.handleTypstLocation = (elem, page, x, y, options) => {
-    const docRoot = findAncestor(elem, "typst-app");
-    if (!docRoot) {
-      console.warn("no typst-app found", elem);
-      return;
-    }
-    options = options || {};
-    options.isDom = true;
-    for (const h of docRoot.children) {
-      if (h.classList.contains("typst-dom-page")) {
-        // @ts-ignore
-        const idx = Number.parseInt(h.getAttribute("data-index"));
-        if (idx + 1 === page) {
-          const svg = h.querySelector(".typst-svg-page");
-          if (svg) {
-            baseHandleTypstLocation(svg, page, x, y, options);
-          }
-          return;
-        }
-      }
-    }
-  };
-
-  function triggerRipple(
-    docRoot: Element,
-    left: number,
-    top: number,
-    className: string,
-    animation: string,
-  ) {
-    console.log('triggerRipple', docRoot, left, top, className, animation);
-    const ripple = document.createElement('div');
-
-    ripple.className = className;
-    ripple.style.left = `${left}px`;
-    ripple.style.top = `${top}px`;
-    ripple.style.zIndex = '100';
-
-    docRoot.appendChild(ripple);
-
-    ripple.style.animation = animation;
-    ripple.onanimationend = () => {
-      console.log('onanimationend', ripple);
-      docRoot.removeChild(ripple);
-    };
-  }
-
-  var scriptTag = document.currentScript;
-  if (scriptTag) {
-    console.log('new svg util updated 37  ', performance.now());
-    const docRoot = findAncestor(scriptTag, 'typst-doc');
-    if (docRoot) {
-      // @ts-ignore
-      window.typstProcessSvg(docRoot);
-    }
-  }
 
   function findLinkInSvg(r: SVGSVGElement, xy: [number, number], target: any) {
     // children
@@ -859,9 +643,20 @@
   };
 
   // @ts-ignore
-  window.typstBindSvgDom = function () { };
+  window.typstBindSvgDom = function (input) {
+    console.log("typstBindSvgDom", input);
+  };
   // @ts-ignore
   window.captureStack = function () {
     return undefined;
   };
-})();
+});
+
+/// Inject the typst library into the given window.
+export default function injectTypst(window: Window) {
+  const w = window as any;
+  if (w.__typstinjected === undefined) {
+    inject();
+    w.__typstinjected = true;
+  }
+}

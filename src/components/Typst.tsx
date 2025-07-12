@@ -1,14 +1,14 @@
-import { Accessor, createEffect, createResource, createSignal, onCleanup, onMount, untrack, useContext } from "solid-js"
+import { Accessor, createEffect, createSignal, onCleanup, onMount, useContext } from "solid-js"
 import { TypstContext } from "~/context/typst"
-import injectedCss from "./typst.css?raw";
-// import injectedJs from "@7mile/enhanced-typst-svg/dist/index.min.js?raw"
-// import injectedJs from "@7mile/enhanced-typst-svg/dist/index.min.js?url"
 import { TypstDomDocument } from "@myriaddreamin/typst.ts/dist/esm/dom.mjs";
-import { createEventListenerMap, makeEventListener, makeEventListenerStack } from "@solid-primitives/event-listener";
+import { createEventListenerMap } from "@solid-primitives/event-listener";
 import { Many } from "@solid-primitives/utils"
-import injectedJs from "./typst_inject?url"
+import { injectLocationEventDispatcher, createLocationEventHandler } from "~/typst/location";
+import injectTypst from "~/typst/inject";
+import "~/typst/typst.css";
+
 export type TypstProps = {
-  artifact?: string
+  artifact?: string,
 }
 
 
@@ -27,10 +27,20 @@ export default function Typst(props: TypstProps) {
   const [container, setContainer] = createSignal<HTMLDivElement>()
   const [isLoading, setIsLoading] = createSignal(false)
   const [error, setError] = createSignal<string>()
-
+  const [anchorElem, setAnchorElem] = createSignal<HTMLDivElement>()
   const [artifact, setArtifact] = createSignal<Uint8Array | undefined>(undefined)
-
   const [domHandle, setDomHandle] = createSignal<TypstDomDocument>()
+
+  const [rippleLeft, setRippleLeft] = createSignal(0)
+  const [rippleTop, setRippleTop] = createSignal(0)
+  const [rippleVisible, setRippleVisible] = createSignal(false)
+
+  onMount(() => {
+    if (typeof window !== "undefined") {
+      injectTypst(window)
+      injectLocationEventDispatcher(window)
+    }
+  })
 
   createEffect(async () => {
     if (props.artifact) {
@@ -93,7 +103,12 @@ export default function Typst(props: TypstProps) {
     scroll: () => {
       console.log("scroll")
       domHandle()?.addViewportChange()
-    }
+    },
+    "typst:location": createLocationEventHandler(container, anchorElem, (left, top) => {
+      setRippleLeft(left)
+      setRippleTop(top)
+      setRippleVisible(true)
+    })
   })
 
   onCleanup(() => {
@@ -114,18 +129,18 @@ export default function Typst(props: TypstProps) {
   )
 
   return (
-    <>
-      <style>{injectedCss}</style>
-      <script type="text/javascript" src={injectedJs}></script>
-      <div>
-        {isLoading() && <SkeletonPlaceholder />}
-        {error() && <ErrorPlaceholder />}
-        <div
-          class="typst-app typst-doc"
-          ref={el => setContainer(el)}
-        // style={{ display: isLoading() || error() ? 'none' : 'block' }}
-        />
-      </div>
-    </>
+    <div class="relative">
+      {isLoading() && <SkeletonPlaceholder />}
+      {error() && <ErrorPlaceholder />}
+      <div
+        class="typst-app typst-doc"
+        ref={el => setContainer(el)}
+      />
+      <div class="absolute w-1 h-1" ref={el => setAnchorElem(el)} />
+      <div class={`absolute w-0 h-0 border-cyan-400 border-2 rounded-full ${rippleVisible() ? "visible animate-[typst-jump-ripple-effect_1s_linear]" : "hidden"}`}
+        style={{ left: `${rippleLeft()}px`, top: `${rippleTop()}px` }}
+        onAnimationEnd={() => setRippleVisible(false)}
+      />
+    </div>
   )
 }
