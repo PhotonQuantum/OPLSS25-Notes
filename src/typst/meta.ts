@@ -132,3 +132,13 @@ export function convertMetaToSections(metaJson: MetaJson): Section[] {
 
   return sections;
 }
+
+/**
+ * Gets the title from a meta.json structure
+ * @param metaJson - The parsed JSON structure from meta.json files
+ * @param defaultTitle - The default title to return if no title is found
+ * @returns The title from the meta.json structure, or the default title if no title is found
+ */
+export function getTitle(metaJson: MetaJson, defaultTitle: string = "Untitled"): string {
+  return Object.values(metaJson).at(0)?.title ?? defaultTitle
+}

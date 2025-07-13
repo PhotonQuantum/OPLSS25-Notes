@@ -5,7 +5,7 @@ import { Dynamic } from "solid-js/web";
 import { metaJsons, typstArtifacts } from "~/assets/typst";
 import Typst, { TypstProps } from "~/components/Typst";
 import { usePageTitle } from "~/context/title";
-import { convertMetaToLocationMap } from "~/typst/meta";
+import { convertMetaToLocationMap, getTitle } from "~/typst/meta";
 
 export default function Article() {
   const location = useLocation();
@@ -16,12 +16,15 @@ export default function Article() {
 
   const params = useParams();
   const article = () => params.article
-  usePageTitle(article());
+
+  const metaJson = () => metaJsons[`/src/assets/typst/${article()}.meta.json`]
+  const title = () => getTitle(metaJson(), article())
+  usePageTitle(title());
 
   const [artifactUrl] = createResource(article, async (article) => {
     return await typstArtifacts[`/src/assets/typst/${article}.multi.sir.in`]()
   })
-  const locationMap = () => convertMetaToLocationMap(metaJsons[`/src/assets/typst/${article()}.meta.json`])
+  const locationMap = () => convertMetaToLocationMap(metaJson())
 
   const [scrollMarginTop, setScrollMarginTop] = createSignal<number>()
 

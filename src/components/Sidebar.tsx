@@ -2,7 +2,7 @@ import { A, useHref, useLocation, useResolvedPath } from "@solidjs/router";
 import { createEffect, createSignal, JSX, Show, createMemo } from "solid-js";
 import SvgChevronRight from "@tabler/icons/outline/chevron-right.svg";
 import { metaJsons, typstArtifacts } from "~/assets/typst";
-import { convertMetaToSections, Section } from "~/typst/meta";
+import { convertMetaToSections, getTitle, Section } from "~/typst/meta";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -156,8 +156,10 @@ function ItemForTypst(name: string) {
   const sections = convertMetaToSections(metaJson)
   const sectionTree = buildSectionTree(sections);
 
+  const title = getTitle(metaJson, name)
+
   return (
-    <NavItem title={name} href={`/${name}#0`}>
+    <NavItem title={title} href={`/${name}#0`}>
       {renderSectionTree(sectionTree, name)}
     </NavItem>
   )
