@@ -4,8 +4,11 @@ import solidSvg from "vite-plugin-solid-svg";
 
 
 export default defineConfig({
-    vite: {
-        plugins: [tailwindcss(), solidSvg({ svgo: { enabled: false } })],
-        logLevel: "info",
+  vite: {
+    server: {
+      allowedHosts: [".trycloudflare.com"]
     },
+    plugins: [tailwindcss(), solidSvg({ svgo: { enabled: false } })],
+    logLevel: "info",
+  },
 });
