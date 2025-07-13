@@ -1,5 +1,5 @@
 import { createResizeObserver } from "@solid-primitives/resize-observer";
-import { useLocation, useParams } from "@solidjs/router";
+import { useLocation, useParams, useNavigate } from "@solidjs/router";
 import { createEffect, createResource, createSignal, onMount } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { metaJsons, typstArtifacts } from "~/assets/typst";
@@ -8,10 +8,9 @@ import { usePageTitle } from "~/context/title";
 import { convertMetaToLocationMap, getTitle } from "~/typst/meta";
 
 export default function Article() {
+  const navigate = useNavigate();
+
   const location = useLocation();
-  createEffect(() => {
-    console.log("location", location.key)
-  })
   const jumpKey = () => location.hash.slice(1);
 
   const params = useParams();
@@ -57,7 +56,14 @@ export default function Article() {
           top: () => `${scrollMarginTop()}px`,
         }}
         locationMap={locationMap()}
-        jumpKey={jumpKey} />
+        jumpKey={jumpKey} 
+        onJumpEnd={(_, jumpKeyTriggered, label) => {
+          if (!jumpKeyTriggered) {
+            const loc = location.pathname.split("#")[0]
+            navigate(`${loc}#${label}`)
+          }
+        }}
+        />
     </>
   );
 }

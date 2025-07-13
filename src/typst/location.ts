@@ -1,22 +1,23 @@
 import { Accessor, untrack } from "solid-js";
+import { LocationMapOfSizes } from "./meta";
 
 export type TypstLocationOptions = { behavior: ScrollBehavior }
-export type TypstLocationEventDetail = { page: number, x: number, y: number, options: TypstLocationOptions }
-export type TypstLocationEvent = CustomEvent<TypstLocationEventDetail>
+export type TypstLocationEventDetail<T> = { page: number, x: number, y: number, options: TypstLocationOptions, state?: T }
+export type TypstLocationEvent<T> = CustomEvent<TypstLocationEventDetail<T>>
 
-export const NewTypstLocationEvent = (page: number, x: number, y: number, options: TypstLocationOptions) => {
+export const NewTypstLocationEvent = <T>(page: number, x: number, y: number, options: TypstLocationOptions, state?: T) => {
   return new CustomEvent('typst:location', {
-    detail: { page, x, y, options },
+    detail: { page, x, y, options, state },
     bubbles: true,  // Allow event to bubble up
     cancelable: true
   })
 }
 
-function locationEventDispatcher(elem: Element, page: number, x: number, y: number, options: TypstLocationOptions) {
+function locationEventDispatcher<T>(elem: Element, page: number, x: number, y: number, options: TypstLocationOptions, state?: T) {
   console.log("handleTypstLocation - dispatching event", page, x, y, options);
 
   // Create custom event with location data
-  const locationEvent = NewTypstLocationEvent(page, x, y, options)
+  const locationEvent = NewTypstLocationEvent<T>(page, x, y, options, state)
 
   // Dispatch on the element - it will bubble up to document containers
   elem.dispatchEvent(locationEvent);
@@ -61,6 +62,12 @@ export const getPageHeight = (docRoot: HTMLElement, page: number = 1) => {
   return Number.parseFloat(svgRoot.getAttribute('data-height') || svgRoot.getAttribute('height') || '0');
 }
 
+export const getLocationMap = (docRoot: HTMLElement, locationMaps: LocationMapOfSizes, page: number = 1) => {
+  const pageWidth = getPageWidth(docRoot, page)
+  const size = Object.keys(locationMaps).map(Number).toSorted((a, b) => b - a).find(size => size <= pageWidth)
+  if (!size) return
+  return locationMaps[size]
+}
 
 /// Create a location event handler for the given document root and anchor element.
 /// Install this on the typst document root element.
@@ -114,7 +121,7 @@ export function createLocationEventHandler(docRoot: Accessor<HTMLElement | undef
     // TODO assign hashloc
   }
 
-  return (event: TypstLocationEvent) => {
+  return <T,>(event: TypstLocationEvent<T>) => {
     // Stop propagation to prevent other documents from handling this
     event.stopPropagation();
     event.preventDefault();

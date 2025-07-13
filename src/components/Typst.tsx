@@ -1,12 +1,13 @@
-import { Accessor, createEffect, createSignal, onCleanup, onMount, useContext } from "solid-js"
+import { Accessor, createEffect, createSignal, onCleanup, onMount, untrack, useContext } from "solid-js"
 import { TypstContext } from "~/context/typst"
 import { TypstDomDocument } from "@myriaddreamin/typst.ts/dist/esm/dom.mjs";
 import { createEventListenerMap } from "@solid-primitives/event-listener";
 import { Many } from "@solid-primitives/utils"
-import { injectLocationEventDispatcher, createLocationEventHandler, NewTypstLocationEvent, findSvgRoot, getPageWidth } from "~/typst/location";
+import { injectLocationEventDispatcher, createLocationEventHandler, NewTypstLocationEvent, findSvgRoot, getPageWidth, TypstLocationEvent, getLocationMap, TypstLocationEventDetail } from "~/typst/location";
 import injectTypst from "~/typst/inject";
 import "~/typst/typst.css";
-import { LocationMapOfSizes } from "~/typst/meta";
+import { LocationMapOfSizes, lookupLabel } from "~/typst/meta";
+import { unwrap } from "solid-js/store";
 
 export type TypstProps = {
   artifact?: string,
@@ -17,6 +18,8 @@ export type TypstProps = {
   },
   jumpKey?: Accessor<string | undefined>,
   onLoaded?: () => void,
+  onJumpStart?: (detail: TypstLocationEventDetail<string | undefined>, jumpKeyTriggered: boolean, label?: string) => void,
+  onJumpEnd?: (detail: TypstLocationEventDetail<string | undefined>, jumpKeyTriggered: boolean, label?: string) => void,
 }
 
 
@@ -50,24 +53,23 @@ export default function Typst(props: TypstProps) {
     }
   })
 
+  // Handle jump key from url hash
   createEffect(() => {
     if (isLoading()) return // wait for dom to be ready
+
     const jumpKey = props.jumpKey?.()
     const localLocationMap = props.locationMap
     const localContainer = container()
+
     if (jumpKey && localContainer && localLocationMap) {
-      console.log("jumpKey triggered", jumpKey)
       if (jumpKey === "0") {
-        localContainer.dispatchEvent(NewTypstLocationEvent(1, 0, 0, { behavior: "smooth" }))
+        // Jump to top of the document
+        localContainer.dispatchEvent(NewTypstLocationEvent(1, 0, 0, { behavior: "smooth" }, true))
         return
       }
-      const pageWidth = getPageWidth(localContainer)
-      const size = Object.keys(localLocationMap).map(Number).toSorted((a, b) => b - a).find(size => size <= pageWidth)
-      if (!size) return
-      const locations = localLocationMap[size][jumpKey]
-      if (locations) {
-        const location = locations[0]
-        localContainer.dispatchEvent(NewTypstLocationEvent(location.page, location.x, location.y, { behavior: "smooth" }))
+      const location = getLocationMap(localContainer, localLocationMap, 1)?.[jumpKey]?.[0]
+      if (location) {
+        localContainer.dispatchEvent(NewTypstLocationEvent(location.page, location.x, location.y, { behavior: "smooth" }, true))
       }
     }
   })
@@ -126,6 +128,11 @@ export default function Typst(props: TypstProps) {
     return delta
   }, false)
 
+  const locationEventHandler = createLocationEventHandler(container, anchorElem, (left, top) => {
+    setRippleLeft(left)
+    setRippleTop(top)
+    setRippleVisible(true)
+  })
   createEventListenerMap(maybeToMany(container), {
     resize: () => {
       console.log("resize")
@@ -135,11 +142,22 @@ export default function Typst(props: TypstProps) {
       console.log("scroll")
       domHandle()?.addViewportChange()
     },
-    "typst:location": createLocationEventHandler(container, anchorElem, (left, top) => {
-      setRippleLeft(left)
-      setRippleTop(top)
-      setRippleVisible(true)
-    }),
+    "typst:location": (event: TypstLocationEvent<string | undefined>) => {
+      // Reverse lookup the label. This is for onJumpStart and onJumpEnd handlers only.
+      const label = (() => {
+        const localContainer = untrack(container)
+        const localLocationMap = unwrap(props.locationMap)
+        const { page, x, y } = event.detail
+        if (!localContainer || !localLocationMap) return
+        const locationMap = getLocationMap(localContainer, localLocationMap, page)
+        if (!locationMap) return
+        return lookupLabel(locationMap, { page, x, y })
+      })()
+
+      props.onJumpStart?.(event.detail, event.detail.state !== undefined, label)
+      locationEventHandler(event)
+      props.onJumpEnd?.(event.detail, event.detail.state !== undefined, label)
+    },
     "typst:svg-done": (event: Event) => {
       event.stopPropagation()
       event.preventDefault()

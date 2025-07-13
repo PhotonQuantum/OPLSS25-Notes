@@ -105,6 +105,20 @@ export function convertMetaToLocationMap(metaJson: MetaJson): LocationMapOfSizes
 }
 
 /**
+ * Lookup the first label that matches the given location in the location map.
+ * @param locationMap - The location map to lookup the label in.
+ * @param location - The location to lookup the label for.
+ * @returns The label for the given location, or undefined if no label is found.
+ */
+export const lookupLabel = (locationMap: LocationMap, location: Location) => {
+  const eps = 1e-2;
+  const [label] = Object.entries(locationMap).find(([_, locations]) => {
+    return locations.some(l => l.page === location.page && Math.abs(l.x - location.x) < eps && Math.abs(l.y - location.y) < eps)
+  }) ?? [undefined]
+  return label
+}
+
+/**
  * Converts a meta.json structure to a list of sections with hash and level using the first size
  * @param metaJson - The parsed JSON structure from meta.json files
  * @returns Array of Section objects with hash and level for all headings from the first size
