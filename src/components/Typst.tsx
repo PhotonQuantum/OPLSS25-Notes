@@ -142,12 +142,10 @@ export default function Typst(props: TypstProps) {
   })
   createEventListenerMap(maybeToMany(container), {
     resize: () => {
-      console.log("resize")
-      domHandle()?.addViewportChange()
+      requestAnimationFrame(() => { domHandle()?.addViewportChange() })
     },
     scroll: () => {
-      console.log("scroll")
-      domHandle()?.addViewportChange()
+      requestAnimationFrame(() => domHandle()?.addViewportChange())
     },
     "typst:location": (event: TypstLocationEvent<string | undefined>) => {
       // Reverse lookup the label. This is for onJumpStart and onJumpEnd handlers only.
