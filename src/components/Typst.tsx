@@ -6,7 +6,7 @@ import { Many } from "@solid-primitives/utils"
 import { injectLocationEventDispatcher, createLocationEventHandler, NewTypstLocationEvent, findSvgRoot, getPageWidth, TypstLocationEvent, getLocationMap, TypstLocationEventDetail } from "~/typst/location";
 import injectTypst from "~/typst/inject";
 import "~/typst/typst.css";
-import { LocationMapOfSizes, lookupLabel } from "~/typst/meta";
+import { Location, LocationMapOfSizes, lookupLabel } from "~/typst/meta";
 import { unwrap } from "solid-js/store";
 
 export type TypstProps = {
@@ -16,7 +16,7 @@ export type TypstProps = {
     top?: Accessor<string | undefined>,
     bottom?: Accessor<string | undefined>,
   },
-  jumpKey?: Accessor<string | undefined>,
+  jumpKey?: Accessor<string | Location | undefined>,
   onLoaded?: () => void,
   onJumpStart?: (detail: TypstLocationEventDetail<string | undefined>, jumpKeyTriggered: boolean, label?: string) => void,
   onJumpEnd?: (detail: TypstLocationEventDetail<string | undefined>, jumpKeyTriggered: boolean, label?: string) => void,
@@ -67,9 +67,16 @@ export default function Typst(props: TypstProps) {
         localContainer.dispatchEvent(NewTypstLocationEvent(1, 0, 0, { behavior: "smooth" }, true))
         return
       }
-      const location = getLocationMap(localContainer, localLocationMap, 1)?.[jumpKey]?.[0]
-      if (location) {
-        localContainer.dispatchEvent(NewTypstLocationEvent(location.page, location.x, location.y, { behavior: "smooth" }, true))
+      if (typeof jumpKey === "string") {
+        // Jump to a named label
+        const location = getLocationMap(localContainer, localLocationMap, 1)?.[jumpKey]?.[0]
+        if (location) {
+          localContainer.dispatchEvent(NewTypstLocationEvent(location.page, location.x, location.y, { behavior: "smooth" }, true))
+        }
+      }
+      if (typeof jumpKey === "object") {
+        // Jump to a specific location
+        localContainer.dispatchEvent(NewTypstLocationEvent(jumpKey.page, jumpKey.x, jumpKey.y, { behavior: "smooth" }, true))
       }
     }
   })

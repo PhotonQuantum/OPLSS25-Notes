@@ -11,7 +11,15 @@ export default function Article() {
   const navigate = useNavigate();
 
   const location = useLocation();
-  const jumpKey = () => location.hash.slice(1);
+  const jumpKey = () => {
+    const hash = location.hash.slice(1);
+    if (hash.startsWith("loc-")) {
+      // It's a specific location, e.g. loc-1-20-100
+      const [_, page, x, y] = hash.split("-")
+      return { page: parseInt(page), x: parseFloat(x), y: parseFloat(y) }
+    }
+    return hash
+  }
 
   const params = useParams();
   const article = () => params.article
@@ -57,10 +65,14 @@ export default function Article() {
         }}
         locationMap={locationMap()}
         jumpKey={jumpKey} 
-        onJumpEnd={(_, jumpKeyTriggered, label) => {
+        onJumpEnd={(detail, jumpKeyTriggered, label) => {
           if (!jumpKeyTriggered) {
             const loc = location.pathname.split("#")[0]
-            navigate(`${loc}#${label}`)
+            if (label) {
+              navigate(`${loc}#${label}`)
+            } else {
+              navigate(`${loc}#loc-${detail.page}-${detail.x}-${detail.y}`)
+            }
           }
         }}
         />
