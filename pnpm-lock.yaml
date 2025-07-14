@@ -11,6 +11,9 @@ importers:
       '@7mile/enhanced-typst-svg':
         specifier: ^0.6.0
         version: 0.6.0
+      '@catppuccin/tailwindcss':
+        specifier: 1.0.0-beta.2
+        version: 1.0.0-beta.2
       '@myriaddreamin/typst-ts-renderer':
         specifier: 0.6.1-rc1
         version: 0.6.1-rc1
@@ -219,6 +222,10 @@ packages:
   '@babel/types@7.28.0':
     resolution: {integrity: sha512-jYnje+JyZG5YThjHiF28oT4SIZLnYOcSBb6+SDaFIyzDVSkXQmQQYclJ2R+YxcdmK0AX6x1E5OQNtuh3jHDrUg==}
     engines: {node: '>=6.9.0'}
+
+  '@catppuccin/tailwindcss@1.0.0-beta.2':
+    resolution: {integrity: sha512-vHTQo068gBmzpAttRQYcdVFSRRjku8bfVrP10binNzpwiw/kNwSAXGpr7HiLynzC3KaNXjhGSVkMkmtrXEoKdg==}
+    engines: {node: '>=22.0.0'}
 
   '@cloudflare/kv-asset-handler@0.4.0':
     resolution: {integrity: sha512-+tv3z+SPp+gqTIcImN9o0hqE9xyfQjI1XD9pL6NuKjua9B1y7mNYv0S9cP+QEbA4ppVgGZEmKOvHX5G5Ei1CVA==}
@@ -3841,6 +3848,8 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
+
+  '@catppuccin/tailwindcss@1.0.0-beta.2': {}
 
   '@cloudflare/kv-asset-handler@0.4.0':
     dependencies:

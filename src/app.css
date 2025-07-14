@@ -1,2 +1,12 @@
 @import "tailwindcss";
+@import "@catppuccin/tailwindcss/mocha.css";
 @plugin "@tailwindcss/typography";
+
+/* NOTE no dark mode support yet */
+@custom-variant dark (&:where(.dark, .dark *));
+
+.prose {
+    a {
+        @apply text-ctp-mauve-500 hover:text-ctp-mauve-900;
+    }
+}

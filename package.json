@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@7mile/enhanced-typst-svg": "^0.6.0",
+    "@catppuccin/tailwindcss": "1.0.0-beta.2",
     "@myriaddreamin/typst-ts-renderer": "0.6.1-rc1",
     "@myriaddreamin/typst.ts": "0.6.1-rc1",
     "@solid-primitives/event-listener": "^2.4.3",

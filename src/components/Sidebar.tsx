@@ -106,8 +106,8 @@ function NavItem(props: NavItemProps) {
   // More compact styling for nested levels
   const getItemClasses = () => {
     const baseClasses = "text-sm font-medium rounded-md transition-colors";
-    const hoverClasses = "hover:bg-gray-100 hover:text-gray-900";
-    const activeClasses = active() ? "bg-blue-100 text-blue-900" : "text-gray-700";
+    const hoverClasses = "hover:text-ctp-mauve-800";
+    const activeClasses = active() ? "bg-ctp-mauve-100/50 text-ctp-mauve-800" : "text-gray-700";
     
     if (level === 0) {
       // Top level - normal padding
@@ -120,7 +120,7 @@ function NavItem(props: NavItemProps) {
 
   const getButtonClasses = () => {
     const baseClasses = "flex-1 text-left text-sm font-medium rounded-md transition-colors";
-    const hoverClasses = "hover:bg-gray-100 hover:text-gray-900";
+    const hoverClasses = "hover:text-ctp-mauve-800";
     const textClasses = "text-gray-700";
     
     if (level === 0) {
@@ -134,8 +134,8 @@ function NavItem(props: NavItemProps) {
 
   const getLinkClasses = () => {
     const baseClasses = "flex-1 block text-sm font-medium rounded-md transition-colors";
-    const hoverClasses = "hover:bg-gray-100 hover:text-gray-900";
-    const activeClasses = active() ? "bg-blue-100 text-blue-900" : "text-gray-700";
+    const hoverClasses = "hover:text-ctp-mauve-800";
+    const activeClasses = active() ? "bg-ctp-mauve-100/50 text-ctp-mauve-800" : "text-gray-700";
     
     if (level === 0) {
       // Top level - normal padding

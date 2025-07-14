@@ -17,10 +17,10 @@ export default function Home() {
           Note that I'm still organizing the notes, so most of the lectures may not be complete.{" "}
           <a href="/paige">Introduction to Category Theory</a> is the most complete one, but it's still a work in progress.
         </p>
-        <p class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-          Due to an upstream issue with the typst renderer, this website does not work on Firefox.
+        <div class="p-4 bg-ctp-yellow-100/50 border border-ctp-yellow-200 rounded-lg">
+          Due to an upstream issue with the typst renderer, this website does <strong>not</strong> work on <i>Firefox</i>.
           Please use other browsers to view the notes, or check out <a href="https://github.com/PhotonQuantum/OPLSS25-Notes/tree/master/pdfs">PDF versions</a> instead.
-        </p>
+        </div>
         <h3>Links</h3>
         <ul>
           <li>
