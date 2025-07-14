@@ -1,5 +1,5 @@
 import { A, useLocation, useResolvedPath } from "@solidjs/router";
-import { createSignal, JSX, Show, createMemo, Accessor } from "solid-js";
+import { createSignal, JSX, Show, createMemo, Accessor, createEffect } from "solid-js";
 import SvgChevronRight from "@tabler/icons/outline/chevron-right.svg";
 import { metaJsons } from "~/assets/typst";
 import { convertMetaToSections, getTitle, Section, SectionTree, buildSectionTree } from "~/typst/meta";
@@ -212,7 +212,101 @@ interface NavigationProps {
 }
 
 function Navigation(props: NavigationProps) {
+  const location = useLocation();
   const [expandedItems, setExpandedItems] = createSignal<Set<string>>(new Set());
+
+  /**
+   * Finds the active route node based on the current URL
+   * @param nodes - Array of route nodes to search through
+   * @param currentPath - Current pathname
+   * @param currentHash - Current hash (without #)
+   * @returns The active route node or null if not found
+   */
+  const findActiveRouteNode = (nodes: RouteNode[], currentPath: string, currentHash: string): RouteNode | null => {
+    for (const node of nodes) {
+      if (node.href) {
+        const [path, hash] = node.href.split('#');
+        const normalizedPath = normalizePath(path);
+        const normalizedCurrentPath = normalizePath(currentPath);
+        
+        // Check if this node matches the current URL
+        if (normalizedPath === normalizedCurrentPath) {
+          // If there's a hash, check if it matches
+          if (hash && currentHash) {
+            if (hash === currentHash) {
+              return node;
+            }
+          } else if (!hash && !currentHash) {
+            // Both have no hash - exact match
+            return node;
+          } else if (!currentHash || currentHash === '0') {
+            // No current hash or hash is '0' - consider it a match for the root
+            return node;
+          }
+        }
+      }
+      
+      // Recursively search in children
+      if (node.children) {
+        const found = findActiveRouteNode(node.children, currentPath, currentHash);
+        if (found) return found;
+      }
+    }
+    return null;
+  };
+
+  /**
+   * Gets all ancestor IDs for a given route node
+   * @param nodes - Array of route nodes to search through
+   * @param targetId - ID of the target node
+   * @param currentPath - Current path of ancestor IDs
+   * @returns Array of ancestor IDs (including the target node itself)
+   */
+  const getAncestorIds = (nodes: RouteNode[], targetId: string, currentPath: string[] = []): string[] | null => {
+    for (const node of nodes) {
+      const newPath = [...currentPath, node.id];
+      
+      if (node.id === targetId) {
+        return newPath;
+      }
+      
+      if (node.children) {
+        const found = getAncestorIds(node.children, targetId, newPath);
+        if (found) return found;
+      }
+    }
+    return null;
+  };
+
+  /**
+   * Updates expanded state based on current URL
+   */
+  const updateExpandedState = () => {
+    const currentPath = location.pathname;
+    const currentHash = location.hash.slice(1); // Remove the # prefix
+    
+    const activeNode = findActiveRouteNode(props.routes, currentPath, currentHash);
+    
+    if (activeNode) {
+      const ancestorIds = getAncestorIds(props.routes, activeNode.id);
+      if (ancestorIds) {
+        // Set expanded items to only include ancestors (excluding the leaf node itself)
+        const expandedAncestors: string[] = ancestorIds.slice(0, -1);
+        setExpandedItems(new Set<string>(expandedAncestors));
+      } else {
+        // If no ancestors found, clear expanded items
+        setExpandedItems(new Set<string>());
+      }
+    } else {
+      // If no active node found, clear expanded items
+      setExpandedItems(new Set<string>());
+    }
+  };
+
+  // Watch for location changes and update expanded state
+  createEffect(() => {
+    updateExpandedState();
+  });
 
   const toggleExpanded = (id: string) => {
     setExpandedItems(prev => {
