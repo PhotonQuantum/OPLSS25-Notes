@@ -33,6 +33,7 @@ interface NavItemProps {
   children?: JSX.Element;
   isExpanded?: boolean;
   onToggle?: () => void;
+  level?: number; // Add level prop for styling
 }
 
 interface RouteNode {
@@ -60,6 +61,7 @@ function extractHash(href: string): string {
 
 function NavItem(props: NavItemProps) {
   const active = useActive(() => props.href!);
+  const level = props.level || 0;
 
   const hasChildren = () => {
     return "children" in props;
@@ -69,11 +71,50 @@ function NavItem(props: NavItemProps) {
     props.onToggle?.();
   };
 
+  // More compact styling for nested levels
+  const getItemClasses = () => {
+    const baseClasses = "text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors";
+    const activeClasses = active() ? "bg-gray-100 text-gray-900" : "";
+    
+    if (level === 0) {
+      // Top level - normal padding
+      return `block p-2 ml-5 ${baseClasses} ${activeClasses}`;
+    } else {
+      // Nested levels - more compact padding
+      return `block py-1 px-2 ml-5 ${baseClasses} ${activeClasses}`;
+    }
+  };
+
+  const getButtonClasses = () => {
+    const baseClasses = "flex-1 text-left text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors";
+    
+    if (level === 0) {
+      // Top level - normal padding
+      return `${baseClasses} p-2`;
+    } else {
+      // Nested levels - more compact padding
+      return `${baseClasses} py-1 px-2`;
+    }
+  };
+
+  const getLinkClasses = () => {
+    const baseClasses = "flex-1 block text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors";
+    const activeClasses = active() ? "bg-gray-100 text-gray-900" : "";
+    
+    if (level === 0) {
+      // Top level - normal padding
+      return `${baseClasses} p-2 ${activeClasses}`;
+    } else {
+      // Nested levels - more compact padding
+      return `${baseClasses} py-1 px-2 ${activeClasses}`;
+    }
+  };
+
   return (
     <Show when={hasChildren()} fallback={
       <A
         href={props.href!}
-        class={`block p-2 ml-5 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors ${active() ? "bg-gray-100 text-gray-900" : ""}`}
+        class={getItemClasses()}
       >
         {props.title}
       </A>
@@ -92,14 +133,14 @@ function NavItem(props: NavItemProps) {
           <Show when={props.href} fallback={
             <button
               onClick={toggleExpanded}
-              class="flex-1 text-left p-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors"
+              class={getButtonClasses()}
             >
               {props.title}
             </button>
           }>
             <A
               href={props.href!}
-              class={`flex-1 block p-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors ${active() ? "bg-gray-100 text-gray-900" : ""}`}
+              class={getLinkClasses()}
             >
               {props.title}
             </A>
@@ -107,7 +148,7 @@ function NavItem(props: NavItemProps) {
         </div>
 
         <Show when={props.isExpanded}>
-          <div class="ml-4 mt-1 space-y-1">
+          <div class={`ml-4 ${level === 0 ? 'mt-1 space-y-1' : 'mt-0.5 space-y-0.5'}`}>
             {props.children}
           </div>
         </Show>
@@ -322,7 +363,7 @@ function Navigation(props: NavigationProps) {
 
   const isExpanded = (id: string) => expandedItems().has(id);
 
-  const renderRouteNodes = (nodes: RouteNode[]): JSX.Element[] => {
+  const renderRouteNodes = (nodes: RouteNode[], level: number = 0): JSX.Element[] => {
     return nodes.map((node) => {
       if (node.children && node.children.length > 0) {
         return (
@@ -331,12 +372,13 @@ function Navigation(props: NavigationProps) {
             href={node.href}
             isExpanded={isExpanded(node.id)}
             onToggle={() => toggleExpanded(node.id)}
+            level={level}
           >
-            {renderRouteNodes(node.children)}
+            {renderRouteNodes(node.children, level + 1)}
           </NavItem>
         );
       } else {
-        return <NavItem title={node.title} href={node.href} />;
+        return <NavItem title={node.title} href={node.href} level={level} />;
       }
     });
   };
