@@ -20,6 +20,7 @@
     "@solidjs/router": "^0.15.3",
     "@solidjs/start": "^1.1.6",
     "@tabler/icons": "^3.34.0",
+    "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.11",
     "enhanced-typst-svg": "link:@myriaddreamin/typst.ts/enhanced-typst-svg",
     "solid-js": "^1.9.7",

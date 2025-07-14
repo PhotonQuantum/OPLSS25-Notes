@@ -1,5 +1,4 @@
 import { Title } from "@solidjs/meta";
-import { typstArtifacts } from "~/assets/typst";
 import { usePageTitle } from "~/context/title";
 
 export default function About() {

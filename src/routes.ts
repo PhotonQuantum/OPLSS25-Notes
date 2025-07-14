@@ -39,11 +39,8 @@ export function createRouteTree(): RouteNode[] {
       title: "Home",
       href: "/"
     },
-    {
-      id: "about",
-      title: "About",
-      href: "/about"
-    },
+    createTypstRouteNode("anja"),
+    createTypstRouteNode("brigitte"),
     createTypstRouteNode("paige"),
     createTypstRouteNode("ningning"),
   ];

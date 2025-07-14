@@ -1,1 +1,878 @@
-{}
+{
+  "250": {
+    "author": "Prof. Anja Petković Komel @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "602.92pt"
+        },
+        "title": "Judgments"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "798.08pt"
+        },
+        "title": "Context (Telescope)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "940.83pt"
+        },
+        "title": "Dependent Stuff"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1153.39pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2379.58pt"
+        },
+        "title": "Derivation"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2783.85pt"
+        },
+        "title": "Types"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2916.44pt"
+        },
+        "title": "Pi (Dependent function)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3610.24pt"
+        },
+        "title": "Non-dependent function"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4086.89pt"
+        },
+        "title": "ℕ Natural Numbers"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4638.97pt"
+        },
+        "title": "1"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4758.99pt"
+        },
+        "title": "0"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4973.39pt"
+        },
+        "title": "Sigma (dependent sum/pair)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5173.3pt"
+        },
+        "title": "Identity"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5913.99pt"
+        },
+        "title": "C.H."
+      }
+    ],
+    "title": "Introduction to Type Theories"
+  },
+  "350": {
+    "author": "Prof. Anja Petković Komel @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "519.41pt"
+        },
+        "title": "Judgments"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "672.93pt"
+        },
+        "title": "Context (Telescope)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "763.67pt"
+        },
+        "title": "Dependent Stuff"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "976.64pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1887.52pt"
+        },
+        "title": "Derivation"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2291.8pt"
+        },
+        "title": "Types"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2403.46pt"
+        },
+        "title": "Pi (Dependent function)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3052.7pt"
+        },
+        "title": "Non-dependent function"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3482.52pt"
+        },
+        "title": "ℕ Natural Numbers"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4020.51pt"
+        },
+        "title": "1"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4140.53pt"
+        },
+        "title": "0"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4290.27pt"
+        },
+        "title": "Sigma (dependent sum/pair)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4420.56pt"
+        },
+        "title": "Identity"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5056.6pt"
+        },
+        "title": "C.H."
+      }
+    ],
+    "title": "Introduction to Type Theories"
+  },
+  "450": {
+    "author": "Prof. Anja Petković Komel @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "483.15pt"
+        },
+        "title": "Judgments"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "615.74pt"
+        },
+        "title": "Context (Telescope)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "685.55pt"
+        },
+        "title": "Dependent Stuff"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "835.74pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1704.77pt"
+        },
+        "title": "Derivation"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2109.04pt"
+        },
+        "title": "Types"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2199.78pt"
+        },
+        "title": "Pi (Dependent function)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2773.84pt"
+        },
+        "title": "Non-dependent function"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3203.66pt"
+        },
+        "title": "ℕ Natural Numbers"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3697.92pt"
+        },
+        "title": "1"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3817.93pt"
+        },
+        "title": "0"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3967.68pt"
+        },
+        "title": "Sigma (dependent sum/pair)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4097.96pt"
+        },
+        "title": "Identity"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4671.22pt"
+        },
+        "title": "C.H."
+      }
+    ],
+    "title": "Introduction to Type Theories"
+  },
+  "550": {
+    "author": "Prof. Anja Petković Komel @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "483.15pt"
+        },
+        "title": "Judgments"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "615.74pt"
+        },
+        "title": "Context (Telescope)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "685.55pt"
+        },
+        "title": "Dependent Stuff"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "835.74pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1600.13pt"
+        },
+        "title": "Derivation"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2004.4pt"
+        },
+        "title": "Types"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2095.14pt"
+        },
+        "title": "Pi (Dependent function)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2518.03pt"
+        },
+        "title": "Non-dependent function"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2947.85pt"
+        },
+        "title": "ℕ Natural Numbers"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3420.38pt"
+        },
+        "title": "1"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3540.4pt"
+        },
+        "title": "0"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3690.14pt"
+        },
+        "title": "Sigma (dependent sum/pair)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3820.43pt"
+        },
+        "title": "Identity"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4351.03pt"
+        },
+        "title": "C.H."
+      }
+    ],
+    "title": "Introduction to Type Theories"
+  },
+  "650": {
+    "author": "Prof. Anja Petković Komel @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "483.15pt"
+        },
+        "title": "Judgments"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "615.74pt"
+        },
+        "title": "Context (Telescope)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "685.55pt"
+        },
+        "title": "Dependent Stuff"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "835.74pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1558.27pt"
+        },
+        "title": "Derivation"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1962.54pt"
+        },
+        "title": "Types"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2053.28pt"
+        },
+        "title": "Pi (Dependent function)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2476.17pt"
+        },
+        "title": "Non-dependent function"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2885.06pt"
+        },
+        "title": "ℕ Natural Numbers"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3335.87pt"
+        },
+        "title": "1"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3455.89pt"
+        },
+        "title": "0"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3605.63pt"
+        },
+        "title": "Sigma (dependent sum/pair)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3735.92pt"
+        },
+        "title": "Identity"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4245.59pt"
+        },
+        "title": "C.H."
+      }
+    ],
+    "title": "Introduction to Type Theories"
+  },
+  "750": {
+    "author": "Prof. Anja Petković Komel @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "483.15pt"
+        },
+        "title": "Judgments"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "615.74pt"
+        },
+        "title": "Context (Telescope)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "685.55pt"
+        },
+        "title": "Dependent Stuff"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "835.74pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1537.34pt"
+        },
+        "title": "Derivation"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1941.62pt"
+        },
+        "title": "Types"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2032.35pt"
+        },
+        "title": "Pi (Dependent function)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2400.99pt"
+        },
+        "title": "Non-dependent function"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2809.88pt"
+        },
+        "title": "ℕ Natural Numbers"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3206.43pt"
+        },
+        "title": "1"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3326.45pt"
+        },
+        "title": "0"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3476.19pt"
+        },
+        "title": "Sigma (dependent sum/pair)"
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3606.48pt"
+        },
+        "title": "Identity"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4074.3pt"
+        },
+        "title": "C.H."
+      }
+    ],
+    "title": "Introduction to Type Theories"
+  }
+}

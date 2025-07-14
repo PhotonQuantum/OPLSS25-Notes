@@ -1,1 +1,1178 @@
-{}
+{
+  "250": {
+    "author": "Prof. Brigitte Pientka @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "723.1pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1195.62pt"
+        },
+        "title": "Hypothetical Reasoning"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1556.99pt"
+        },
+        "title": "Properties of assumtions (structural)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1879.46pt"
+        },
+        "title": "Context"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2597.26pt"
+        },
+        "title": "Local Soundness/Completeness"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3396.26pt"
+        },
+        "title": "C.H."
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3642.3pt"
+        },
+        "title": "Typing Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5294.28pt"
+        },
+        "title": "Disjunction"
+      },
+      {
+        "level": 3,
+        "numbering": "0.7.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5385.01pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.8",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5637.54pt"
+        },
+        "title": "Local Soundness"
+      },
+      {
+        "level": 1,
+        "numbering": "1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5757.07pt"
+        },
+        "title": "Modal Logic S4"
+      },
+      {
+        "level": 2,
+        "numbering": "1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "6009.63pt"
+        },
+        "title": "Necessity Modality □ A"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "6173.61pt"
+        },
+        "title": "Validity"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "6375pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "8670.45pt"
+        },
+        "title": "Syntax"
+      },
+      {
+        "level": 2,
+        "numbering": "1.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "9492.58pt"
+        },
+        "title": "Real Programming Example"
+      },
+      {
+        "level": 2,
+        "numbering": "1.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "10553.18pt"
+        },
+        "title": "Contextual types"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "10706.7pt"
+        },
+        "title": "Examples"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "11077.45pt"
+        },
+        "title": "Syntax"
+      }
+    ],
+    "title": "Introduction to Logical Foundations"
+  },
+  "350": {
+    "author": "Prof. Brigitte Pientka @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "624.05pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1054.72pt"
+        },
+        "title": "Hypothetical Reasoning"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1364.08pt"
+        },
+        "title": "Properties of assumtions (structural)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1634.54pt"
+        },
+        "title": "Context"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2289.56pt"
+        },
+        "title": "Local Soundness/Completeness"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2942.07pt"
+        },
+        "title": "C.H."
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3167.17pt"
+        },
+        "title": "Typing Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4638.93pt"
+        },
+        "title": "Disjunction"
+      },
+      {
+        "level": 3,
+        "numbering": "0.7.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4729.66pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.8",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4906.2pt"
+        },
+        "title": "Local Soundness"
+      },
+      {
+        "level": 1,
+        "numbering": "1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5025.74pt"
+        },
+        "title": "Modal Logic S4"
+      },
+      {
+        "level": 2,
+        "numbering": "1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5215.51pt"
+        },
+        "title": "Necessity Modality □ A"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5327.49pt"
+        },
+        "title": "Validity"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5487.23pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7371.85pt"
+        },
+        "title": "Syntax"
+      },
+      {
+        "level": 2,
+        "numbering": "1.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "8056.22pt"
+        },
+        "title": "Real Programming Example"
+      },
+      {
+        "level": 2,
+        "numbering": "1.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "8960.93pt"
+        },
+        "title": "Contextual types"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "9093.52pt"
+        },
+        "title": "Examples"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "9422.41pt"
+        },
+        "title": "Syntax"
+      }
+    ],
+    "title": "Introduction to Logical Foundations"
+  },
+  "450": {
+    "author": "Prof. Brigitte Pientka @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "624.05pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1054.72pt"
+        },
+        "title": "Hypothetical Reasoning"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1364.08pt"
+        },
+        "title": "Properties of assumtions (structural)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1613.61pt"
+        },
+        "title": "Context"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2268.64pt"
+        },
+        "title": "Local Soundness/Completeness"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2869.13pt"
+        },
+        "title": "C.H."
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3073.31pt"
+        },
+        "title": "Typing Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4407.1pt"
+        },
+        "title": "Disjunction"
+      },
+      {
+        "level": 3,
+        "numbering": "0.7.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4476.9pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.8",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4631.72pt"
+        },
+        "title": "Local Soundness"
+      },
+      {
+        "level": 1,
+        "numbering": "1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4751.25pt"
+        },
+        "title": "Modal Logic S4"
+      },
+      {
+        "level": 2,
+        "numbering": "1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4941.02pt"
+        },
+        "title": "Necessity Modality □ A"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5032.07pt"
+        },
+        "title": "Validity"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "5191.81pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7055.5pt"
+        },
+        "title": "Syntax"
+      },
+      {
+        "level": 2,
+        "numbering": "1.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7718.15pt"
+        },
+        "title": "Real Programming Example"
+      },
+      {
+        "level": 2,
+        "numbering": "1.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "8438.77pt"
+        },
+        "title": "Contextual types"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "8550.43pt"
+        },
+        "title": "Examples"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "8858.39pt"
+        },
+        "title": "Syntax"
+      }
+    ],
+    "title": "Introduction to Logical Foundations"
+  },
+  "550": {
+    "author": "Prof. Brigitte Pientka @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "587.79pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "997.54pt"
+        },
+        "title": "Hypothetical Reasoning"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1285.97pt"
+        },
+        "title": "Properties of assumtions (structural)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1504.42pt"
+        },
+        "title": "Context"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2117.58pt"
+        },
+        "title": "Local Soundness/Completeness"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2634.37pt"
+        },
+        "title": "C.H."
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2838.54pt"
+        },
+        "title": "Typing Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3995.96pt"
+        },
+        "title": "Disjunction"
+      },
+      {
+        "level": 3,
+        "numbering": "0.7.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4065.77pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.8",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4220.58pt"
+        },
+        "title": "Local Soundness"
+      },
+      {
+        "level": 1,
+        "numbering": "1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4340.12pt"
+        },
+        "title": "Modal Logic S4"
+      },
+      {
+        "level": 2,
+        "numbering": "1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4529.89pt"
+        },
+        "title": "Necessity Modality □ A"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4620.94pt"
+        },
+        "title": "Validity"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4759.75pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "6443.62pt"
+        },
+        "title": "Syntax"
+      },
+      {
+        "level": 2,
+        "numbering": "1.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7106.26pt"
+        },
+        "title": "Real Programming Example"
+      },
+      {
+        "level": 2,
+        "numbering": "1.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7766.98pt"
+        },
+        "title": "Contextual types"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7857.72pt"
+        },
+        "title": "Examples"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "8144.75pt"
+        },
+        "title": "Syntax"
+      }
+    ],
+    "title": "Introduction to Logical Foundations"
+  },
+  "650": {
+    "author": "Prof. Brigitte Pientka @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "587.79pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "997.54pt"
+        },
+        "title": "Hypothetical Reasoning"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1285.97pt"
+        },
+        "title": "Properties of assumtions (structural)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1504.42pt"
+        },
+        "title": "Context"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2117.58pt"
+        },
+        "title": "Local Soundness/Completeness"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2634.37pt"
+        },
+        "title": "C.H."
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2838.54pt"
+        },
+        "title": "Typing Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3995.96pt"
+        },
+        "title": "Disjunction"
+      },
+      {
+        "level": 3,
+        "numbering": "0.7.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4065.77pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.8",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4220.58pt"
+        },
+        "title": "Local Soundness"
+      },
+      {
+        "level": 1,
+        "numbering": "1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4340.12pt"
+        },
+        "title": "Modal Logic S4"
+      },
+      {
+        "level": 2,
+        "numbering": "1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4529.89pt"
+        },
+        "title": "Necessity Modality □ A"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4620.94pt"
+        },
+        "title": "Validity"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4759.75pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "6380.84pt"
+        },
+        "title": "Syntax"
+      },
+      {
+        "level": 2,
+        "numbering": "1.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "6947.37pt"
+        },
+        "title": "Real Programming Example"
+      },
+      {
+        "level": 2,
+        "numbering": "1.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7608.08pt"
+        },
+        "title": "Contextual types"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7698.82pt"
+        },
+        "title": "Examples"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7985.86pt"
+        },
+        "title": "Syntax"
+      }
+    ],
+    "title": "Introduction to Logical Foundations"
+  },
+  "750": {
+    "author": "Prof. Brigitte Pientka @ OPLSS25\n Notes by: Yanning Chen",
+    "headings": [
+      {
+        "level": 2,
+        "numbering": "0.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "587.79pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "997.54pt"
+        },
+        "title": "Hypothetical Reasoning"
+      },
+      {
+        "level": 2,
+        "numbering": "0.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1285.97pt"
+        },
+        "title": "Properties of assumtions (structural)"
+      },
+      {
+        "level": 2,
+        "numbering": "0.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "1504.42pt"
+        },
+        "title": "Context"
+      },
+      {
+        "level": 2,
+        "numbering": "0.5",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2117.58pt"
+        },
+        "title": "Local Soundness/Completeness"
+      },
+      {
+        "level": 2,
+        "numbering": "0.6",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2634.37pt"
+        },
+        "title": "C.H."
+      },
+      {
+        "level": 3,
+        "numbering": "0.6.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "2838.54pt"
+        },
+        "title": "Typing Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "0.7",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "3995.96pt"
+        },
+        "title": "Disjunction"
+      },
+      {
+        "level": 3,
+        "numbering": "0.7.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4065.77pt"
+        },
+        "title": "Rules"
+      },
+      {
+        "level": 2,
+        "numbering": "0.8",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4166.33pt"
+        },
+        "title": "Local Soundness"
+      },
+      {
+        "level": 1,
+        "numbering": "1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4285.86pt"
+        },
+        "title": "Modal Logic S4"
+      },
+      {
+        "level": 2,
+        "numbering": "1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4475.64pt"
+        },
+        "title": "Necessity Modality □ A"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4545.76pt"
+        },
+        "title": "Validity"
+      },
+      {
+        "level": 3,
+        "numbering": "1.1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "4684.57pt"
+        },
+        "title": "Judgment"
+      },
+      {
+        "level": 2,
+        "numbering": "1.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "6305.65pt"
+        },
+        "title": "Syntax"
+      },
+      {
+        "level": 2,
+        "numbering": "1.3",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "6872.18pt"
+        },
+        "title": "Real Programming Example"
+      },
+      {
+        "level": 2,
+        "numbering": "1.4",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7532.9pt"
+        },
+        "title": "Contextual types"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.1",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7623.64pt"
+        },
+        "title": "Examples"
+      },
+      {
+        "level": 3,
+        "numbering": "1.4.2",
+        "position": {
+          "page": 1,
+          "x": "20pt",
+          "y": "7889.74pt"
+        },
+        "title": "Syntax"
+      }
+    ],
+    "title": "Introduction to Logical Foundations"
+  }
+}

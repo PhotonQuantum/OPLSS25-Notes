@@ -1,8 +1,8 @@
 #import "/prelude.typ": *
-
-#show: codly-init.with()
-
-#codly(languages: codly-languages)
+#show: prelude-init.with(
+  title: [Introduction to Logical Foundations],
+  author: [Prof. Brigitte Pientka \@ OPLSS25\ Notes by: Yanning Chen],
+)
 
 == Judgment
 

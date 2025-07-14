@@ -1,8 +1,7 @@
 #import "/prelude.typ": *
-
 #show: prelude-init.with(
-  title: [Notes for _Ningning_],
-  author: [Notes by: Yanning Chen],
+  title: [Algebraic Effects and Handlers],
+  author: [Prof. Ningning Xie \@ OPLSS25\ Notes by: Yanning Chen],
 )
 
 = Effects

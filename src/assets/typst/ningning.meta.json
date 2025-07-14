@@ -1,6 +1,6 @@
 {
   "250": {
-    "author": "Notes by: Yanning Chen",
+    "author": "Prof. Ningning Xie @ OPLSS25\n Notes by: Yanning Chen",
     "headings": [
       {
         "level": 1,
@@ -8,7 +8,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "673.32pt"
+          "y": "694.04pt"
         },
         "title": "Effects"
       },
@@ -18,7 +18,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "1122.95pt"
+          "y": "1143.67pt"
         },
         "title": "Definition"
       },
@@ -28,7 +28,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3246.54pt"
+          "y": "3267.26pt"
         },
         "title": "How are algebraic effects algebraic?"
       },
@@ -38,7 +38,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3613.4pt"
+          "y": "3634.12pt"
         },
         "title": "Computational Trees"
       },
@@ -48,7 +48,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3915.88pt"
+          "y": "3936.6pt"
         },
         "title": "As free monads"
       },
@@ -58,7 +58,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4360.89pt"
+          "y": "4381.61pt"
         },
         "title": "Parametrized"
       },
@@ -68,7 +68,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4407.75pt"
+          "y": "4428.47pt"
         },
         "title": "Parametrized Operations"
       },
@@ -78,7 +78,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4745pt"
+          "y": "4765.72pt"
         },
         "title": "Parametrized Arguments"
       },
@@ -88,7 +88,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5299.78pt"
+          "y": "5320.5pt"
         },
         "title": "Generic Effects"
       },
@@ -98,7 +98,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5673.53pt"
+          "y": "5694.25pt"
         },
         "title": "Example Calculus"
       },
@@ -108,7 +108,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5756.65pt"
+          "y": "5777.37pt"
         },
         "title": "Syntax"
       },
@@ -118,7 +118,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6215.73pt"
+          "y": "6236.45pt"
         },
         "title": "Effect Handler"
       },
@@ -128,7 +128,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6262.59pt"
+          "y": "6283.31pt"
         },
         "title": "Syntax"
       },
@@ -138,7 +138,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7348.62pt"
+          "y": "7369.34pt"
         },
         "title": "Delimited Continuation"
       },
@@ -148,7 +148,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7986.28pt"
+          "y": "8007pt"
         },
         "title": "Handler composition"
       },
@@ -158,7 +158,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "8813.19pt"
+          "y": "8833.91pt"
         },
         "title": "Dynamics"
       },
@@ -168,7 +168,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "8993.54pt"
+          "y": "9014.26pt"
         },
         "title": "Alternatives"
       },
@@ -178,7 +178,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "9911.8pt"
+          "y": "9932.52pt"
         },
         "title": "Effect Type System"
       },
@@ -188,7 +188,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "9994.92pt"
+          "y": "10015.64pt"
         },
         "title": "Syntax"
       },
@@ -198,7 +198,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "10286.02pt"
+          "y": "10306.74pt"
         },
         "title": "Judgment"
       },
@@ -208,15 +208,15 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "11388.4pt"
+          "y": "11409.12pt"
         },
         "title": "Runtime Implementation"
       }
     ],
-    "title": "Notes for Ningning"
+    "title": "Algebraic Effects and Handlers"
   },
   "350": {
-    "author": "Notes by: Yanning Chen",
+    "author": "Prof. Ningning Xie @ OPLSS25\n Notes by: Yanning Chen",
     "headings": [
       {
         "level": 1,
@@ -224,7 +224,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "616.13pt"
+          "y": "673.11pt"
         },
         "title": "Effects"
       },
@@ -234,7 +234,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "982.05pt"
+          "y": "1039.03pt"
         },
         "title": "Definition"
       },
@@ -244,7 +244,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2774.22pt"
+          "y": "2831.2pt"
         },
         "title": "How are algebraic effects algebraic?"
       },
@@ -254,7 +254,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3062.96pt"
+          "y": "3119.94pt"
         },
         "title": "Computational Trees"
       },
@@ -264,7 +264,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3287.32pt"
+          "y": "3344.3pt"
         },
         "title": "As free monads"
       },
@@ -274,7 +274,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3618.29pt"
+          "y": "3675.27pt"
         },
         "title": "Parametrized"
       },
@@ -284,7 +284,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3665.15pt"
+          "y": "3722.13pt"
         },
         "title": "Parametrized Operations"
       },
@@ -294,7 +294,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3911.42pt"
+          "y": "3968.4pt"
         },
         "title": "Parametrized Arguments"
       },
@@ -304,7 +304,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4291.72pt"
+          "y": "4348.7pt"
         },
         "title": "Generic Effects"
       },
@@ -314,7 +314,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4573.04pt"
+          "y": "4630.02pt"
         },
         "title": "Example Calculus"
       },
@@ -324,7 +324,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4619.9pt"
+          "y": "4676.88pt"
         },
         "title": "Syntax"
       },
@@ -334,7 +334,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5001.03pt"
+          "y": "5058.01pt"
         },
         "title": "Effect Handler"
       },
@@ -344,7 +344,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5047.89pt"
+          "y": "5104.87pt"
         },
         "title": "Syntax"
       },
@@ -354,7 +354,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5878.41pt"
+          "y": "5935.39pt"
         },
         "title": "Delimited Continuation"
       },
@@ -364,7 +364,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6323.33pt"
+          "y": "6380.31pt"
         },
         "title": "Handler composition"
       },
@@ -374,7 +374,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6873.47pt"
+          "y": "6930.45pt"
         },
         "title": "Dynamics"
       },
@@ -384,7 +384,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7053.82pt"
+          "y": "7110.8pt"
         },
         "title": "Alternatives"
       },
@@ -394,7 +394,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7792.37pt"
+          "y": "7849.35pt"
         },
         "title": "Effect Type System"
       },
@@ -404,7 +404,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7839.23pt"
+          "y": "7896.21pt"
         },
         "title": "Syntax"
       },
@@ -414,7 +414,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "8088.47pt"
+          "y": "8145.45pt"
         },
         "title": "Judgment"
       },
@@ -424,15 +424,15 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "8917.99pt"
+          "y": "8974.97pt"
         },
         "title": "Runtime Implementation"
       }
     ],
-    "title": "Notes for Ningning"
+    "title": "Algebraic Effects and Handlers"
   },
   "450": {
-    "author": "Notes by: Yanning Chen",
+    "author": "Prof. Ningning Xie @ OPLSS25\n Notes by: Yanning Chen",
     "headings": [
       {
         "level": 1,
@@ -440,7 +440,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "616.13pt"
+          "y": "636.85pt"
         },
         "title": "Effects"
       },
@@ -450,7 +450,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "919.27pt"
+          "y": "939.99pt"
         },
         "title": "Definition"
       },
@@ -460,7 +460,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2565.74pt"
+          "y": "2586.46pt"
         },
         "title": "How are algebraic effects algebraic?"
       },
@@ -470,7 +470,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2833.56pt"
+          "y": "2854.28pt"
         },
         "title": "Computational Trees"
       },
@@ -480,7 +480,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3036.98pt"
+          "y": "3057.7pt"
         },
         "title": "As free monads"
       },
@@ -490,7 +490,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3328.99pt"
+          "y": "3349.71pt"
         },
         "title": "Parametrized"
       },
@@ -500,7 +500,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3375.85pt"
+          "y": "3396.57pt"
         },
         "title": "Parametrized Operations"
       },
@@ -510,7 +510,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3601.19pt"
+          "y": "3621.91pt"
         },
         "title": "Parametrized Arguments"
       },
@@ -520,7 +520,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3939.63pt"
+          "y": "3960.35pt"
         },
         "title": "Generic Effects"
       },
@@ -530,7 +530,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4200.83pt"
+          "y": "4221.55pt"
         },
         "title": "Example Calculus"
       },
@@ -540,7 +540,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4247.69pt"
+          "y": "4268.41pt"
         },
         "title": "Syntax"
       },
@@ -550,7 +550,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4607.89pt"
+          "y": "4628.61pt"
         },
         "title": "Effect Handler"
       },
@@ -560,7 +560,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4654.75pt"
+          "y": "4675.47pt"
         },
         "title": "Syntax"
       },
@@ -570,7 +570,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5425.36pt"
+          "y": "5446.08pt"
         },
         "title": "Delimited Continuation"
       },
@@ -580,7 +580,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5828.43pt"
+          "y": "5849.15pt"
         },
         "title": "Handler composition"
       },
@@ -590,7 +590,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6315.78pt"
+          "y": "6336.5pt"
         },
         "title": "Dynamics"
       },
@@ -600,7 +600,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6475.21pt"
+          "y": "6495.93pt"
         },
         "title": "Alternatives"
       },
@@ -610,7 +610,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7174.79pt"
+          "y": "7195.51pt"
         },
         "title": "Effect Type System"
       },
@@ -620,7 +620,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7221.65pt"
+          "y": "7242.37pt"
         },
         "title": "Syntax"
       },
@@ -630,7 +630,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7449.96pt"
+          "y": "7470.68pt"
         },
         "title": "Judgment"
       },
@@ -640,15 +640,15 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "8172.97pt"
+          "y": "8193.69pt"
         },
         "title": "Runtime Implementation"
       }
     ],
-    "title": "Notes for Ningning"
+    "title": "Algebraic Effects and Handlers"
   },
   "550": {
-    "author": "Notes by: Yanning Chen",
+    "author": "Prof. Ningning Xie @ OPLSS25\n Notes by: Yanning Chen",
     "headings": [
       {
         "level": 1,
@@ -656,7 +656,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "616.13pt"
+          "y": "636.85pt"
         },
         "title": "Effects"
       },
@@ -666,7 +666,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "877.41pt"
+          "y": "898.13pt"
         },
         "title": "Definition"
       },
@@ -676,7 +676,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2377.39pt"
+          "y": "2398.11pt"
         },
         "title": "How are algebraic effects algebraic?"
       },
@@ -686,7 +686,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2567.09pt"
+          "y": "2587.81pt"
         },
         "title": "Computational Trees"
       },
@@ -696,7 +696,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2749.59pt"
+          "y": "2770.31pt"
         },
         "title": "As free monads"
       },
@@ -706,7 +706,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3002.62pt"
+          "y": "3023.34pt"
         },
         "title": "Parametrized"
       },
@@ -716,7 +716,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3049.48pt"
+          "y": "3070.2pt"
         },
         "title": "Parametrized Operations"
       },
@@ -726,7 +726,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3253.89pt"
+          "y": "3274.61pt"
         },
         "title": "Parametrized Arguments"
       },
@@ -736,7 +736,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3592.33pt"
+          "y": "3613.05pt"
         },
         "title": "Generic Effects"
       },
@@ -746,7 +746,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3836.29pt"
+          "y": "3857.01pt"
         },
         "title": "Example Calculus"
       },
@@ -756,7 +756,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3883.15pt"
+          "y": "3903.87pt"
         },
         "title": "Syntax"
       },
@@ -766,7 +766,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4243.35pt"
+          "y": "4264.07pt"
         },
         "title": "Effect Handler"
       },
@@ -776,7 +776,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4290.21pt"
+          "y": "4310.93pt"
         },
         "title": "Syntax"
       },
@@ -786,7 +786,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4952.56pt"
+          "y": "4973.28pt"
         },
         "title": "Delimited Continuation"
       },
@@ -796,7 +796,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5316.65pt"
+          "y": "5337.37pt"
         },
         "title": "Handler composition"
       },
@@ -806,7 +806,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5706.73pt"
+          "y": "5727.45pt"
         },
         "title": "Dynamics"
       },
@@ -816,7 +816,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5866.16pt"
+          "y": "5886.88pt"
         },
         "title": "Alternatives"
       },
@@ -826,7 +826,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6484.91pt"
+          "y": "6505.63pt"
         },
         "title": "Effect Type System"
       },
@@ -836,7 +836,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6531.77pt"
+          "y": "6552.49pt"
         },
         "title": "Syntax"
       },
@@ -846,7 +846,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6760.08pt"
+          "y": "6780.8pt"
         },
         "title": "Judgment"
       },
@@ -856,15 +856,15 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7388.85pt"
+          "y": "7409.57pt"
         },
         "title": "Runtime Implementation"
       }
     ],
-    "title": "Notes for Ningning"
+    "title": "Algebraic Effects and Handlers"
   },
   "650": {
-    "author": "Notes by: Yanning Chen",
+    "author": "Prof. Ningning Xie @ OPLSS25\n Notes by: Yanning Chen",
     "headings": [
       {
         "level": 1,
@@ -872,7 +872,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "616.13pt"
+          "y": "636.85pt"
         },
         "title": "Effects"
       },
@@ -882,7 +882,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "856.48pt"
+          "y": "877.2pt"
         },
         "title": "Definition"
       },
@@ -892,7 +892,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2314.6pt"
+          "y": "2335.32pt"
         },
         "title": "How are algebraic effects algebraic?"
       },
@@ -902,7 +902,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2504.3pt"
+          "y": "2525.02pt"
         },
         "title": "Computational Trees"
       },
@@ -912,7 +912,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2686.8pt"
+          "y": "2707.52pt"
         },
         "title": "As free monads"
       },
@@ -922,7 +922,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2939.83pt"
+          "y": "2960.55pt"
         },
         "title": "Parametrized"
       },
@@ -932,7 +932,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2986.69pt"
+          "y": "3007.41pt"
         },
         "title": "Parametrized Operations"
       },
@@ -942,7 +942,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3191.1pt"
+          "y": "3211.82pt"
         },
         "title": "Parametrized Arguments"
       },
@@ -952,7 +952,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3508.62pt"
+          "y": "3529.34pt"
         },
         "title": "Generic Effects"
       },
@@ -962,7 +962,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3752.58pt"
+          "y": "3773.3pt"
         },
         "title": "Example Calculus"
       },
@@ -972,7 +972,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3799.44pt"
+          "y": "3820.16pt"
         },
         "title": "Syntax"
       },
@@ -982,7 +982,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4159.64pt"
+          "y": "4180.36pt"
         },
         "title": "Effect Handler"
       },
@@ -992,7 +992,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4206.5pt"
+          "y": "4227.22pt"
         },
         "title": "Syntax"
       },
@@ -1002,7 +1002,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4850.8pt"
+          "y": "4871.52pt"
         },
         "title": "Delimited Continuation"
       },
@@ -1012,7 +1012,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5193.96pt"
+          "y": "5214.68pt"
         },
         "title": "Handler composition"
       },
@@ -1022,7 +1022,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5584.05pt"
+          "y": "5604.77pt"
         },
         "title": "Dynamics"
       },
@@ -1032,7 +1032,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5743.47pt"
+          "y": "5764.19pt"
         },
         "title": "Alternatives"
       },
@@ -1042,7 +1042,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6323.25pt"
+          "y": "6343.97pt"
         },
         "title": "Effect Type System"
       },
@@ -1052,7 +1052,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6370.11pt"
+          "y": "6390.83pt"
         },
         "title": "Syntax"
       },
@@ -1062,7 +1062,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6577.5pt"
+          "y": "6598.22pt"
         },
         "title": "Judgment"
       },
@@ -1072,15 +1072,15 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "7099.75pt"
+          "y": "7120.47pt"
         },
         "title": "Runtime Implementation"
       }
     ],
-    "title": "Notes for Ningning"
+    "title": "Algebraic Effects and Handlers"
   },
   "750": {
-    "author": "Notes by: Yanning Chen",
+    "author": "Prof. Ningning Xie @ OPLSS25\n Notes by: Yanning Chen",
     "headings": [
       {
         "level": 1,
@@ -1088,7 +1088,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "616.13pt"
+          "y": "636.85pt"
         },
         "title": "Effects"
       },
@@ -1098,7 +1098,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "835.56pt"
+          "y": "856.28pt"
         },
         "title": "Definition"
       },
@@ -1108,7 +1108,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2272.75pt"
+          "y": "2293.47pt"
         },
         "title": "How are algebraic effects algebraic?"
       },
@@ -1118,7 +1118,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2462.45pt"
+          "y": "2483.17pt"
         },
         "title": "Computational Trees"
       },
@@ -1128,7 +1128,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2644.95pt"
+          "y": "2665.67pt"
         },
         "title": "As free monads"
       },
@@ -1138,7 +1138,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2897.98pt"
+          "y": "2918.7pt"
         },
         "title": "Parametrized"
       },
@@ -1148,7 +1148,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "2944.84pt"
+          "y": "2965.56pt"
         },
         "title": "Parametrized Operations"
       },
@@ -1158,7 +1158,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3128.32pt"
+          "y": "3149.04pt"
         },
         "title": "Parametrized Arguments"
       },
@@ -1168,7 +1168,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3445.84pt"
+          "y": "3466.56pt"
         },
         "title": "Generic Effects"
       },
@@ -1178,7 +1178,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3689.79pt"
+          "y": "3710.51pt"
         },
         "title": "Example Calculus"
       },
@@ -1188,7 +1188,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "3736.65pt"
+          "y": "3757.37pt"
         },
         "title": "Syntax"
       },
@@ -1198,7 +1198,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4096.86pt"
+          "y": "4117.58pt"
         },
         "title": "Effect Handler"
       },
@@ -1208,7 +1208,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4143.72pt"
+          "y": "4164.44pt"
         },
         "title": "Syntax"
       },
@@ -1218,7 +1218,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "4788.01pt"
+          "y": "4808.73pt"
         },
         "title": "Delimited Continuation"
       },
@@ -1228,7 +1228,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5110.25pt"
+          "y": "5130.97pt"
         },
         "title": "Handler composition"
       },
@@ -1238,7 +1238,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5479.41pt"
+          "y": "5500.13pt"
         },
         "title": "Dynamics"
       },
@@ -1248,7 +1248,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "5638.83pt"
+          "y": "5659.55pt"
         },
         "title": "Alternatives"
       },
@@ -1258,7 +1258,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6218.61pt"
+          "y": "6239.33pt"
         },
         "title": "Effect Type System"
       },
@@ -1268,7 +1268,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6265.47pt"
+          "y": "6286.19pt"
         },
         "title": "Syntax"
       },
@@ -1278,7 +1278,7 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6472.86pt"
+          "y": "6493.58pt"
         },
         "title": "Judgment"
       },
@@ -1288,11 +1288,11 @@
         "position": {
           "page": 1,
           "x": "20pt",
-          "y": "6974.18pt"
+          "y": "6994.9pt"
         },
         "title": "Runtime Implementation"
       }
     ],
-    "title": "Notes for Ningning"
+    "title": "Algebraic Effects and Handlers"
   }
 }

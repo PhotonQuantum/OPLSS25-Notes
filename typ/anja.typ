@@ -1,10 +1,8 @@
 #import "/prelude.typ": *
-#import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
-
-#show: codly-init.with()
-
-#codly(languages: codly-languages)
+#show: prelude-init.with(
+  title: [Introduction to Type Theories],
+  author: [Prof. Anja Petković Komel \@ OPLSS25\ Notes by: Yanning Chen],
+)
 
 #let eqd = $attach(=, t: .)$
 

@@ -1,7 +1,7 @@
 #import "/prelude.typ": *
 #show: prelude-init.with(
-  title: [Notes for _Introduction to Category Theory_],
-  author: [Prof. Paige North \@ OPLSS25\ Notes by: Yanning Chen],
+  title: [Introduction to Category Theory],
+  author: [Prof. Paige Randall North \@ OPLSS25\ Notes by: Yanning Chen],
 )
 
 = Category Theory
