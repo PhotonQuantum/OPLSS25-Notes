@@ -31,25 +31,26 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Setup Shiroa
-        uses: taiki-e/cache-cargo-install-action@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
         with:
-          tool: shiroa
-          git: https://github.com/Myriad-Dreamin/shiroa.git
-          rev: 5977d245763549592b2133041518b91b7b393d75
-
-    #   - name: Setup Shiroa
-    #     uses: jaxxstorm/action-install-gh-release@v2.1.0
-    #     with:
-    #       repo: Myriad-Dreamin/shiroa
-    #       tag: v0.3.1-rc3
-    #       cache: true
+          version: 10
+          run_install: false
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
       - name: Build book
-        run: make book
+        run: pnpm build
+        env:
+          NITRO_PRESET: github_pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "dist"
+          path: "./.output/public"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

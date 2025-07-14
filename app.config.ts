@@ -11,4 +11,15 @@ export default defineConfig({
     plugins: [tailwindcss(), solidSvg({ svgo: { enabled: false } })],
     logLevel: "info",
   },
+  server: {
+    prerender: {
+      routes: [
+        "/",
+        "/paige",
+        "/ningning",
+        "/anja",
+        "/brigitte"
+      ]
+    }
+  }
 });
