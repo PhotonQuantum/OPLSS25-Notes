@@ -1,12 +1,13 @@
 import { makeEventListener, makeEventListenerStack } from "@solid-primitives/event-listener";
 import { createResizeObserver, makeResizeObserver } from "@solid-primitives/resize-observer";
 import { useLocation, useParams, useNavigate } from "@solidjs/router";
-import { createEffect, createResource, createSignal, onMount, untrack } from "solid-js";
+import { createEffect, createResource, createSignal, onMount, Show, untrack } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { metaJsons, typstArtifacts } from "~/assets/typst";
 import Typst, { TypstProps } from "~/components/Typst";
 import { usePageTitle } from "~/context/title";
 import { convertMetaToLocationMap, getTitle } from "~/typst/meta";
+import NotFound from "~/components/404";
 
 export default function Article() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function Article() {
   const article = () => params.article
 
   const metaJson = () => metaJsons[`/src/assets/typst/${article()}.meta.json`]
-  const title = () => getTitle(metaJson(), article())
+  const title = () => metaJson() !== undefined ? getTitle(metaJson(), article()) : "(˃̣̣̥ᯅ˂̣̣̥)"
   usePageTitle(title());
 
   const [artifactUrl] = createResource(article, async (article) => {
@@ -65,7 +66,7 @@ export default function Article() {
   }
 
   return (
-    <>
+    <Show when={metaJson()} fallback={<NotFound />}>
       <div class="absolute w-full h-full -z-50" ref={measureRef} />
       <Dynamic component={TypstComponent()}
         artifact={artifactUrl()}
@@ -86,6 +87,6 @@ export default function Article() {
           }
         }}
       />
-    </>
+    </Show>
   );
 }

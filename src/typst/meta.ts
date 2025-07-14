@@ -74,7 +74,11 @@ export type LocationMapOfSizes = Record<number, LocationMap>
  * @param metaJson - The parsed JSON structure from meta.json files
  * @returns A LocationMapOfSizes object organized by size and heading titles
  */
-export function convertMetaToLocationMap(metaJson: MetaJson): LocationMapOfSizes {
+export function convertMetaToLocationMap(metaJson?: MetaJson): LocationMapOfSizes {
+  if (!metaJson) {
+    return {}
+  }
+
   const result: LocationMapOfSizes = {};
 
   // Iterate through each size key (e.g., "250", "350")
