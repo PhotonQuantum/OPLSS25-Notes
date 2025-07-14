@@ -73,40 +73,44 @@ function NavItem(props: NavItemProps) {
 
   // More compact styling for nested levels
   const getItemClasses = () => {
-    const baseClasses = "text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors";
-    const activeClasses = active() ? "bg-gray-100 text-gray-900" : "";
+    const baseClasses = "text-sm font-medium rounded-md transition-colors";
+    const hoverClasses = "hover:bg-gray-100 hover:text-gray-900";
+    const activeClasses = active() ? "bg-blue-100 text-blue-900" : "text-gray-700";
     
     if (level === 0) {
       // Top level - normal padding
-      return `block p-2 ml-5 ${baseClasses} ${activeClasses}`;
+      return `block p-2 ml-5 ${baseClasses} ${hoverClasses} ${activeClasses}`;
     } else {
       // Nested levels - more compact padding
-      return `block py-1 px-2 ml-5 ${baseClasses} ${activeClasses}`;
+      return `block py-1 px-2 ml-5 ${baseClasses} ${hoverClasses} ${activeClasses}`;
     }
   };
 
   const getButtonClasses = () => {
-    const baseClasses = "flex-1 text-left text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors";
+    const baseClasses = "flex-1 text-left text-sm font-medium rounded-md transition-colors";
+    const hoverClasses = "hover:bg-gray-100 hover:text-gray-900";
+    const textClasses = "text-gray-700";
     
     if (level === 0) {
       // Top level - normal padding
-      return `${baseClasses} p-2`;
+      return `${baseClasses} ${hoverClasses} ${textClasses} p-2`;
     } else {
       // Nested levels - more compact padding
-      return `${baseClasses} py-1 px-2`;
+      return `${baseClasses} ${hoverClasses} ${textClasses} py-1 px-2`;
     }
   };
 
   const getLinkClasses = () => {
-    const baseClasses = "flex-1 block text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors";
-    const activeClasses = active() ? "bg-gray-100 text-gray-900" : "";
+    const baseClasses = "flex-1 block text-sm font-medium rounded-md transition-colors";
+    const hoverClasses = "hover:bg-gray-100 hover:text-gray-900";
+    const activeClasses = active() ? "bg-blue-100 text-blue-900" : "text-gray-700";
     
     if (level === 0) {
       // Top level - normal padding
-      return `${baseClasses} p-2 ${activeClasses}`;
+      return `${baseClasses} ${hoverClasses} ${activeClasses} p-2`;
     } else {
       // Nested levels - more compact padding
-      return `${baseClasses} py-1 px-2 ${activeClasses}`;
+      return `${baseClasses} ${hoverClasses} ${activeClasses} py-1 px-2`;
     }
   };
 
