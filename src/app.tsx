@@ -9,10 +9,12 @@ import Header from "~/components/Header";
 import { TypstProvider } from "./context/typst";
 import { TitleProvider } from "./context/title";
 import { createPresence } from "@solid-primitives/presence";
+import { createRouteTree } from "./routes";
 
 export default function App() {
   const isMdScreen = createMediaQuery("(min-width: 768px)");
   const [isSidebarOpen, setIsSidebarOpen] = createSignal(false);
+  const routes = createRouteTree();
 
   const showBackdrop = () => isSidebarOpen() && !isMdScreen();
   const { isVisible: isBackdropVisible, isMounted: isBackdropMounted } = createPresence(showBackdrop, { transitionDuration: 300 });
@@ -43,7 +45,7 @@ export default function App() {
             ? `transition-all duration-300 ${isSidebarOpen() ? "w-64" : "w-0"} overflow-x-hidden`
             : `fixed left-0 top-0 h-full z-50 transition-transform duration-300 overflow-y-auto ${isSidebarOpen() ? "translate-x-0" : "-translate-x-full"}`
         }>
-          <Sidebar isOpen={isSidebarOpen()} />
+          <Sidebar routes={routes} />
         </div>
 
         <div class="flex-1 flex flex-col h-full min-w-0">

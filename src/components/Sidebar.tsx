@@ -1,8 +1,6 @@
 import { A, useLocation, useResolvedPath } from "@solidjs/router";
 import { createSignal, JSX, Show, createMemo, Accessor, createEffect, onMount } from "solid-js";
 import SvgChevronRight from "@tabler/icons/outline/chevron-right.svg";
-import { metaJsons } from "~/assets/typst";
-import { convertMetaToSections, getTitle, Section, SectionTree, buildSectionTree } from "~/typst/meta";
 import { isServer } from "solid-js/web";
 
 function extractHash(href: string): string {
@@ -66,7 +64,7 @@ const useActive = (href: Accessor<string>, end: boolean = false) => {
 }
 
 interface SidebarProps {
-  isOpen: boolean;
+  routes: RouteNode[];
 }
 
 interface NavItemProps {
@@ -193,97 +191,6 @@ function NavItem(props: NavItemProps) {
       </div>
     </Show>
   );
-}
-
-function convertSectionTreeToRouteNodes(tree: SectionTree[], name: string): RouteNode[] {
-  return tree.map((node) => {
-    const id = `${name}-${node.section.hash}`;
-    const title = node.section.title;
-    const href = `/${name}#${node.section.hash}`;
-
-    return {
-      id,
-      title,
-      href,
-      children: node.children.length > 0 ? convertSectionTreeToRouteNodes(node.children, name) : undefined
-    };
-  });
-}
-
-function createTypstRouteNode(name: string): RouteNode {
-  const metaJson = metaJsons[`/src/assets/typst/${name}.meta.json`]
-  const sections = convertMetaToSections(metaJson)
-  const sectionTree = buildSectionTree(sections);
-  const title = getTitle(metaJson, name)
-
-  return {
-    id: name,
-    title,
-    href: `/${name}#0`,
-    children: convertSectionTreeToRouteNodes(sectionTree, name)
-  };
-}
-
-// Define the route tree structure
-function createRouteTree(): RouteNode[] {
-  return [
-    {
-      id: "home",
-      title: "Home",
-      href: "/"
-    },
-    {
-      id: "about",
-      title: "About",
-      href: "/about"
-    },
-    createTypstRouteNode("paige"),
-    createTypstRouteNode("ningning"),
-    {
-      id: "academic-writing",
-      title: "Academic Writing",
-      href: "/academic-writing",
-      children: [
-        {
-          id: "papers",
-          title: "Papers",
-          href: "/academic-writing/papers"
-        },
-        {
-          id: "thesis",
-          title: "Thesis",
-          href: "/academic-writing/thesis"
-        },
-        {
-          id: "conferences",
-          title: "Conferences",
-          href: "/academic-writing/conferences",
-          children: [
-            {
-              id: "popl-2024",
-              title: "POPL 2024",
-              href: "/academic-writing/conferences/popl-2024"
-            },
-            {
-              id: "pldi-2024",
-              title: "PLDI 2024",
-              href: "/academic-writing/conferences/pldi-2024"
-            },
-            {
-              id: "icfp-2024",
-              title: "ICFP 2024",
-              href: "/academic-writing/conferences/icfp-2024"
-            }
-          ]
-        },
-        {
-          id: "workshops",
-          title: "Workshops",
-          href: "/academic-writing/workshops"
-        }
-      ]
-    }
-  ];
 }
 
 interface NavigationProps {
@@ -427,12 +334,10 @@ function Navigation(props: NavigationProps) {
 }
 
 export default function Sidebar(props: SidebarProps) {
-  const routes = createRouteTree();
-
   return (
     <aside class={`bg-gray-50 border-r border-gray-200 min-h-screen transition-all duration-300 w-64`}>
       <div class="p-4">
-        <Navigation routes={routes} />
+        <Navigation routes={props.routes} />
       </div>
     </aside>
   );

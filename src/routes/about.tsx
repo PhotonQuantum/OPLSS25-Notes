@@ -6,7 +6,7 @@ export default function About() {
   usePageTitle("About");
 
   return (
-    <>
+    <div class="p-8">
       <Title>About - Conference Notes</Title>
       <div class="prose prose-lg max-w-none">
         <h1 class="text-3xl font-bold text-gray-900 mb-6">About</h1>
@@ -29,6 +29,6 @@ export default function About() {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
