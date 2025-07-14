@@ -1,6 +1,7 @@
-import { createResizeObserver } from "@solid-primitives/resize-observer";
+import { makeEventListener, makeEventListenerStack } from "@solid-primitives/event-listener";
+import { createResizeObserver, makeResizeObserver } from "@solid-primitives/resize-observer";
 import { useLocation, useParams, useNavigate } from "@solidjs/router";
-import { createEffect, createResource, createSignal, onMount } from "solid-js";
+import { createEffect, createResource, createSignal, onMount, untrack } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { metaJsons, typstArtifacts } from "~/assets/typst";
 import Typst, { TypstProps } from "~/components/Typst";
@@ -33,13 +34,20 @@ export default function Article() {
   })
   const locationMap = () => convertMetaToLocationMap(metaJson())
 
-  const [scrollMarginTop, setScrollMarginTop] = createSignal<number>()
-
-  let measureRef!: HTMLDivElement;
-
+  const [viewportChange, setViewportChange] = createSignal(() => { })
   onMount(() => {
-    createResizeObserver(measureRef, ({height}) => {
-      setScrollMarginTop(height/4)
+    const main = document.querySelector("main")!
+    const f = () => untrack(viewportChange)()
+    makeEventListener(main, "scroll", f, { passive: true })
+    const { observe } = makeResizeObserver(f)
+    observe(main)
+  })
+
+  const [scrollMarginTop, setScrollMarginTop] = createSignal<number>()
+  let measureRef!: HTMLDivElement;
+  onMount(() => {
+    createResizeObserver(measureRef, ({ height }) => {
+      setScrollMarginTop(height / 4)
     })
   })
 
@@ -63,8 +71,9 @@ export default function Article() {
         scrollMargin={{
           top: () => `${scrollMarginTop()}px`,
         }}
+        setupViewportChange={(f) => setViewportChange(() => f)}
         locationMap={locationMap()}
-        jumpKey={jumpKey} 
+        jumpKey={jumpKey}
         onJumpEnd={(detail, jumpKeyTriggered, label) => {
           if (!jumpKeyTriggered) {
             const loc = location.pathname.split("#")[0]
@@ -75,7 +84,7 @@ export default function Article() {
             }
           }
         }}
-        />
+      />
     </>
   );
 }

@@ -17,6 +17,7 @@ export type TypstProps = {
     bottom?: Accessor<string | undefined>,
   },
   jumpKey?: Accessor<string | Location | undefined>,
+  setupViewportChange?: (callback: () => void) => void,
   onLoaded?: () => void,
   onJumpStart?: (detail: TypstLocationEventDetail<string | undefined>, jumpKeyTriggered: boolean, label?: string) => void,
   onJumpEnd?: (detail: TypstLocationEventDetail<string | undefined>, jumpKeyTriggered: boolean, label?: string) => void,
@@ -134,6 +135,12 @@ export default function Typst(props: TypstProps) {
     }
     return delta
   }, false)
+
+  createEffect(() => {
+    props.setupViewportChange?.(() => {
+      requestAnimationFrame(() => { untrack(domHandle)?.addViewportChange() })
+    })
+  })
 
   const locationEventHandler = createLocationEventHandler(container, anchorElem, (left, top) => {
     setRippleLeft(left)
