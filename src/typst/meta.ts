@@ -58,6 +58,14 @@ export interface Section {
   title: string;
 }
 
+/**
+ * Represents a hierarchical tree structure of sections
+ */
+export interface SectionTree {
+  section: Section;
+  children: SectionTree[];
+}
+
 export type LocationMap = Record<string, Location[]>
 export type LocationMapOfSizes = Record<number, LocationMap>
 
@@ -145,6 +153,50 @@ export function convertMetaToSections(metaJson: MetaJson): Section[] {
   }
 
   return sections;
+}
+
+/**
+ * Builds a hierarchical tree structure from a flat array of sections
+ * @param sections - Array of Section objects to build the tree from
+ * @returns Array of SectionTree objects representing the hierarchical structure
+ * 
+ * @example
+ * ```typescript
+ * const sections = [
+ *   { hash: 'intro', level: 1, title: 'Introduction' },
+ *   { hash: 'overview', level: 2, title: 'Overview' },
+ *   { hash: 'details', level: 2, title: 'Details' },
+ *   { hash: 'conclusion', level: 1, title: 'Conclusion' }
+ * ];
+ * 
+ * const tree = buildSectionTree(sections);
+ * // Returns a tree where 'Introduction' and 'Conclusion' are root nodes,
+ * // and 'Overview' and 'Details' are children of 'Introduction'
+ * ```
+ */
+export function buildSectionTree(sections: Section[]): SectionTree[] {
+  const tree: SectionTree[] = [];
+  const stack: SectionTree[] = [];
+
+  for (const section of sections) {
+    const node: SectionTree = { section, children: [] };
+
+    // Remove nodes from stack that are at same or deeper level
+    while (stack.length > 0 && stack[stack.length - 1].section.level >= section.level) {
+      stack.pop();
+    }
+
+    // Add as child to the last node in stack, or as root
+    if (stack.length > 0) {
+      stack[stack.length - 1].children.push(node);
+    } else {
+      tree.push(node);
+    }
+
+    stack.push(node);
+  }
+
+  return tree;
 }
 
 /**
