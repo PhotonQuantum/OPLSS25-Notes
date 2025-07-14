@@ -30,7 +30,7 @@ export default function App() {
 
   const AppContent = (props: any) => {
     return (
-      <div class="flex bg-white relative">
+      <div class="flex h-screen bg-white relative">
         {/* Mobile backdrop */}
         <Show when={isBackdropMounted()}>
           <div
