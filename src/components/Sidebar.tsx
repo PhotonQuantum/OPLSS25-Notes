@@ -369,16 +369,14 @@ function Navigation(props: NavigationProps) {
     if (activeNode) {
       const ancestorIds = getAncestorIds(props.routes, activeNode.id);
       if (ancestorIds) {
-        // Set expanded items to only include ancestors (excluding the leaf node itself)
+        // Add ancestors to expanded items while preserving previously expanded items
         const expandedAncestors: string[] = ancestorIds.slice(0, -1);
-        setExpandedItems(new Set<string>(expandedAncestors));
-      } else {
-        // If no ancestors found, clear expanded items
-        setExpandedItems(new Set<string>());
+        setExpandedItems(prev => {
+          const newSet = new Set(prev);
+          expandedAncestors.forEach(id => newSet.add(id));
+          return newSet;
+        });
       }
-    } else {
-      // If no active node found, clear expanded items
-      setExpandedItems(new Set<string>());
     }
   };
 
@@ -432,7 +430,7 @@ export default function Sidebar(props: SidebarProps) {
   const routes = createRouteTree();
 
   return (
-    <aside class={`bg-gray-50 border-r border-gray-200 min-h-screen transition-all duration-300 ${props.isOpen ? "w-64" : "w-0 overflow-hidden"}`}>
+    <aside class={`bg-gray-50 border-r border-gray-200 min-h-screen transition-all duration-300 w-64`}>
       <div class="p-4">
         <Navigation routes={routes} />
       </div>

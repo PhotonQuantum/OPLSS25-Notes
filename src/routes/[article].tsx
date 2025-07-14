@@ -37,10 +37,11 @@ export default function Article() {
   const [viewportChange, setViewportChange] = createSignal(() => { })
   onMount(() => {
     const main = document.querySelector("main")!
+    const bookContainer = document.querySelector("#book-container")!
     const f = () => untrack(viewportChange)()
     makeEventListener(main, "scroll", f, { passive: true })
     const { observe } = makeResizeObserver(f)
-    observe(main)
+    observe(bookContainer)
   })
 
   const [scrollMarginTop, setScrollMarginTop] = createSignal<number>()

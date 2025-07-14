@@ -25,7 +25,7 @@ export default function App() {
   const AppContent = (props: any) => {
     return (
       <div class="flex h-screen bg-white">
-        <div class={`transition-all duration-300 ${isSidebarOpen() ? "w-64" : "w-0"}`}>
+        <div class={`transition-all duration-300 ${isSidebarOpen() ? "w-64" : "w-0"} overflow-x-hidden`}>
           <Sidebar isOpen={isSidebarOpen()} />
         </div>
         <div class="flex-1 flex flex-col h-full min-w-0">
@@ -34,7 +34,7 @@ export default function App() {
             isSidebarOpen={isSidebarOpen()}
           />
           <main class="flex-1 h-full overflow-y-auto relative">
-            <div class="max-w-4xl mx-auto h-full relative">
+            <div class="max-w-4xl mx-auto h-full relative" id="book-container">
               <Suspense>{props.children}</Suspense>
             </div>
           </main>
