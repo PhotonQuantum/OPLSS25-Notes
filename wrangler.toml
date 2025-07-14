@@ -1,0 +1,10 @@
+name = "oplss25-notes"
+compatibility_date = "2025-04-01"
+routes = [
+  { pattern = "oplss25-notes.lightquantum.me", custom_domain = true },
+  { pattern = "oplss25-notes.yanningchen.me", custom_domain = true }
+]
+
+[assets]
+directory = "./.output/public"
+not_found_handling = "404-page"
