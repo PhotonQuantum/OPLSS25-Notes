@@ -84,11 +84,11 @@ interface RouteNode {
   defaultExpanded?: boolean;
 }
 
-const trimPathRegex = /^\/+|(\/)\/+$/g;
-
 function normalizePath(path: string, omitSlash: boolean = false) {
-  const s = path.replace(trimPathRegex, "$1");
-  return s ? (omitSlash || /^[?#]/.test(s) ? s : "/" + s) : "";
+  // Remove leading and trailing slashes
+  const trimmed = path.replace(/^\/+|\/+$/g, '');
+  // Add back one leading slash if not omitting and path is not empty and doesn't start with ? or #
+  return trimmed ? (omitSlash || /^[?#]/.test(trimmed) ? trimmed : "/" + trimmed) : "";
 }
 
 function NavItem(props: NavItemProps) {
