@@ -34,7 +34,7 @@ export default function App() {
             isSidebarOpen={isSidebarOpen()}
           />
           <main class="flex-1 h-full overflow-y-auto relative">
-            <div class="max-w-4xl mx-auto p-8 h-full relative">
+            <div class="max-w-4xl mx-auto h-full relative">
               <Suspense>{props.children}</Suspense>
             </div>
           </main>

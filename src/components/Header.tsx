@@ -27,7 +27,7 @@ export default function Header(props: HeaderProps) {
         </button>
       </div>
       
-      <div class="flex-1 flex justify-center">
+      <div class="flex-1 flex justify-center truncate">
         <h1 class="text-xl font-semibold text-gray-900 truncate">
           {title()}
         </h1>

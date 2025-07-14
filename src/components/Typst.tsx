@@ -183,19 +183,23 @@ export default function Typst(props: TypstProps) {
   })
 
   const SkeletonPlaceholder = () => (
-    <div class="absolute animate-pulse bg-gray-200 rounded-lg min-h-96 h-full w-full flex items-center justify-center z-10">
-      <div class="text-gray-500">Loading document...</div>
+    <div class="absolute h-full w-full z-10 p-8">
+      <div class="animate-pulse bg-gray-200 rounded-lg min-h-96 flex items-center justify-center">
+        <div class="text-gray-500">Loading document...</div>
+      </div>
     </div>
   )
 
   const ErrorPlaceholder = () => (
-    <div class="absolute bg-red-50 border border-red-200 rounded-lg min-h-96 h-full w-full flex items-center justify-center z-10">
-      <div class="text-red-600">Error loading document: {error()}</div>
+    <div class="absolute h-full w-full z-10 p-8">
+      <div class="bg-red-50 border border-red-200 rounded-lg min-h-96 flex items-center justify-center">
+        <div class="text-red-600">Error loading document: {error()}</div>
+      </div>
     </div>
   )
 
   return (
-    <div class="relative">
+    <div class="relative pb-8">
       {isLoading() && <SkeletonPlaceholder />}
       {error() && <ErrorPlaceholder />}
       <div
