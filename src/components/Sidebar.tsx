@@ -1,24 +1,66 @@
 import { A, useLocation, useResolvedPath } from "@solidjs/router";
-import { createSignal, JSX, Show, createMemo, Accessor, createEffect } from "solid-js";
+import { createSignal, JSX, Show, createMemo, Accessor, createEffect, onMount } from "solid-js";
 import SvgChevronRight from "@tabler/icons/outline/chevron-right.svg";
 import { metaJsons } from "~/assets/typst";
 import { convertMetaToSections, getTitle, Section, SectionTree, buildSectionTree } from "~/typst/meta";
+import { isServer } from "solid-js/web";
 
-const useActive = (href: Accessor<string>) => {
+function extractHash(href: string): string {
+  const hashIndex = href.indexOf('#');
+  if (hashIndex === -1) {
+    return '';
+  }
+  return href.substring(hashIndex + 1);
+}
+
+/**
+ * Normalizes a hash fragment for comparison
+ * Treats '0' and hashes starting with 'loc-' as equivalent to no hash
+ * @param hash - The hash fragment (without #)
+ * @returns Normalized hash string
+ */
+function normalizeHash(hash: string): string {
+  if (!hash || hash === '0' || hash.startsWith('loc-')) {
+    return '';
+  }
+  return hash;
+}
+
+const useActive = (href: Accessor<string>, end: boolean = false) => {
   const to = useResolvedPath(href);
   const location = useLocation();
   const active = createMemo(() => {
+    // Location on the server doesn't have a hash, so we can't use it to determine if the link is active.
+    if (isServer) return false;
+    
     const to_ = to();
     if (to_ === undefined) return false;
     const path = normalizePath(to_.split(/[?#]/, 1)[0]).toLowerCase();
     const loc = decodeURI(normalizePath(location.pathname).toLowerCase());
-    const urlMatch = (path === "" ? false : loc.startsWith(path + "/")) || loc === path
-    if (!to_.includes("#") || to_.endsWith("#0")) {
-      return urlMatch
+    
+    if (end) {
+      // For end nodes, require exact match on both path and hash
+      const exactPathMatch = loc === path;
+      if (!exactPathMatch) return false;
+      
+      const toHash = extractHash(to_);
+      const currentHash = location.hash.slice(1);
+      
+      // Use the utility function to normalize hashes
+      const normalizedToHash = normalizeHash(toHash);
+      const normalizedCurrentHash = normalizeHash(currentHash);
+      
+      return normalizedToHash === normalizedCurrentHash;
+    } else {
+      // For ancestor nodes, allow prefix match
+      const urlMatch = (path === "" ? false : loc.startsWith(path + "/")) || loc === path;
+      if (!to_.includes("#") || to_.endsWith("#0")) {
+        return urlMatch;
+      }
+      const toHash = extractHash(to_);
+      const currentHash = location.hash.slice(1);
+      return urlMatch && toHash === currentHash;
     }
-    const toHash = extractHash(to_)
-    const currentHash = location.hash.slice(1)
-    return urlMatch && toHash === currentHash
   });
   return active;
 }
@@ -51,16 +93,8 @@ function normalizePath(path: string, omitSlash: boolean = false) {
   return s ? (omitSlash || /^[?#]/.test(s) ? s : "/" + s) : "";
 }
 
-function extractHash(href: string): string {
-  const hashIndex = href.indexOf('#');
-  if (hashIndex === -1) {
-    return '';
-  }
-  return href.substring(hashIndex + 1);
-}
-
 function NavItem(props: NavItemProps) {
-  const active = useActive(() => props.href!);
+  const active = useActive(() => props.href!, true); // Use end=true for active styling
   const level = props.level || 0;
 
   const hasChildren = () => {

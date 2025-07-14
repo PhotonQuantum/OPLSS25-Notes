@@ -14,8 +14,8 @@ export default function Article() {
   const jumpKey = () => {
     const hash = location.hash.slice(1);
     if (hash.startsWith("loc-")) {
-      // It's a specific location, e.g. loc-1-20-100
-      const [_, page, x, y] = hash.split("-")
+      // It's a specific location, e.g. loc-1x20x100
+      const [page, x, y] = hash.slice(4).split("x")
       return { page: parseInt(page), x: parseFloat(x), y: parseFloat(y) }
     }
     return hash
